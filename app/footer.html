@@ -1,11 +1,16 @@
-<!-- build:js scripts/vendor.js -->
+<!-- build:js /scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/owlcarousel/owl-carousel/owl.carousel.min.js"></script>
 <script src="/bower_components/client-side-include/clientincludes.js"></script>
 <script src="/bower_components/sticky/jquery.sticky.js"></script>
 <script src="/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js /scripts/owl.js -->
+
+<script src="/bower_components/owlcarousel/owl-carousel/owl.carousel.min.js"></script>
+
 <!-- endbuild -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -18,7 +23,7 @@
     ga('create','UA-38517805-1');ga('send','pageview');
 </script>
 
-<!-- build:js({app,.tmp}) scripts/main.js -->
+<!-- build:js({app,.tmp}) /scripts/main.js -->
 <script src="/scripts/main.js"></script>
 <!-- endbuild -->
 </body>

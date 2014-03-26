@@ -24,4 +24,6 @@ $(document).ready(function() {
     $('.item').click(function(){
         owl.trigger('owl.next');
     });
+
+    console.log('main.js loaded');
 });

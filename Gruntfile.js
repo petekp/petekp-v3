@@ -1,4 +1,4 @@
-// Generated on 2014-03-25 using generator-webapp 0.4.8
+// Generated on 2014-03-26 using generator-webapp 0.4.8
 'use strict';
 
 // # Globbing
@@ -163,7 +163,7 @@ module.exports = function (grunt) {
         // Build the site using grunt-includes
         includes: {
             build: {
-                cwd: 'app',
+                cwd: '<%= config.app %>',
                 src: ['*.html', 'projects/**/*.html'],
                 dest: 'dist',
                 options: {
@@ -171,7 +171,7 @@ module.exports = function (grunt) {
                 }
             },
             server: {
-                cwd: 'app',
+                cwd: '<%= config.app %>',
                 src: ['*.html', 'projects/**/*.html'],
                 dest: '.tmp/',
                 options: {
@@ -230,7 +230,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.dist %>'
             },
-            html: '<%= config.app %>/index.html'
+            html: ['<%= config.app %>/{,*/}*.html', '<%= config.app %>/projects/**/*.html' ],
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -238,7 +238,7 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
             },
-            html: ['<%= config.dist %>/{,*/}*.html'],
+            html: ['<%= config.dist %>/{,*/}*.html', '<%= config.dist %>/projects/**/*.html' ],
             css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
 
@@ -249,7 +249,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= config.app %>/images',
                     src: '{,*/}*.{gif,jpeg,jpg,png}',
-                    dest: '<%= config.dist %>/images',
+                    dest: '<%= config.dist %>/images'
                 }]
             }
         },
@@ -280,7 +280,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.dist %>',
-                    src: '{,*/}*.html',
+                    src: ['{,*/}*.html', 'projects/**/*.html'],
                     dest: '<%= config.dist %>'
                 }]
             }
@@ -289,28 +289,28 @@ module.exports = function (grunt) {
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= config.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= config.app %>/styles/{,*/}*.css'
-                    ]
-                }
-            }
-        },
-        uglify: {
-            dist: {
-                files: {
-                    '<%= config.dist %>/scripts/scripts.js': [
-                        '<%= config.dist %>/scripts/scripts.js'
-                    ]
-                }
-            }
-        },
-        concat: {
-            dist: {}
-        },
+        // cssmin: {
+        //     dist: {
+        //         files: {
+        //             '<%= config.dist %>/styles/main.css': [
+        //                 '.tmp/styles/{,*/}*.css',
+        //                 '<%= config.app %>/styles/{,*/}*.css'
+        //             ]
+        //         }
+        //     }
+        // },
+        // uglify: {
+        //     dist: {
+        //         files: {
+        //             '<%= config.dist %>/scripts/scripts.js': [
+        //                 '<%= config.dist %>/scripts/scripts.js'
+        //             ]
+        //         }
+        //     }
+        // },
+        // concat: {
+        //     dist: {}
+        // },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -322,10 +322,7 @@ module.exports = function (grunt) {
                     dest: '<%= config.dist %>',
                     src: [
                         '*.{ico,png,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.webp',
-                        '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        '.htaccess'
                     ]
                 }]
             },
@@ -354,8 +351,6 @@ module.exports = function (grunt) {
             ]
         }
     });
-
-    grunt.loadNpmTasks('grunt-includes');
 
 
     grunt.registerTask('serve', function (target) {
@@ -396,16 +391,15 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
+        'includes:build',
         'concurrent:dist',
-        'autoprefixer',
         'concat',
         'cssmin',
         'uglify',
         'copy:dist',
         'rev',
         'usemin',
-        'htmlmin',
-        'includes:build',
+        'htmlmin'
     ]);
 
     grunt.registerTask('default', [
@@ -414,7 +408,5 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-
-
-
+    grunt.loadNpmTasks('grunt-includes');
 };

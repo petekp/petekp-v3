@@ -5,21 +5,14 @@
 @import "project-thumbs";
 @import "projects";
 @import "carousel";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body{
-  font-family: "Palatino", "Palatino Linotype", "Open Sans", sans-serif;
+  font-family: "Palatino", Helvetica, Arial, sans-serif;
   color: #333;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-  text-rendering: optimizeLegibility !important;
-}
-
-.wrapper{
-  @include outer-container;
 }
 
 .page-header{
@@ -28,7 +21,6 @@ body{
   height: 400px;
   width: 100%;
   margin-bottom: 0;
-  background-color: #4D5C21;
 
   a{
     color: #c3f777;
@@ -84,9 +76,14 @@ body{
 .page-content{
   margin: 70px 0;
 }
+
+
+
+.current-work, .past-work, .about-me{
+  @include outer-container;
+}
 section{
   margin: 0 0 90px 0;
-  @include clearfix;
 }
 section header{
   text-align: center;
