@@ -1,0 +1,36 @@
+$column: golden-ratio(1em, 3) !default; // Column width
+$gutter: golden-ratio(.1em, 1) !default; // Gutter between each two columns
+$grid-columns: 12 !default; // Total number of columns in the grid
+$max-width: em(1088) !default; // Max-width of the outer container
+$border-box-sizing: true !default; // Makes all elements have a border-box layout
+$default-feature: min-width; // Default @media feature for the breakpoint() mixin
+$default-layout-direction: LTR !default;
+
+
+/*  Color
+--------------------------------------------------------------------------------------------*/
+
+$themeColorPrimary: #FD4019;
+$themeColorSecondary: #091038;
+$photoColor: #0094FF;
+
+$blogColorPrimary: #FD4019;
+$blogColorSecondary: #091038;
+
+$projectsColorPrimary: #52FCBA;
+$projectsColorSecondary: #091038;
+
+$aboutColorPrimary: #D3F062;
+$aboutColorSecondary: #D3F062;
+
+
+/*  Project Colors
+--------------------------------------------------------------------------------------------*/
+
+$bpn: #337988;
+$streetsync: #947633;
+$aristonjacks: #4B7A33;
+$peakfoods: #4A220C;
+$stats: #555;
+$forge: #90260A;
+$vuact: #433775;

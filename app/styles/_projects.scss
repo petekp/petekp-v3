@@ -1,0 +1,199 @@
+
+
+
+/*  Project Details
+--------------------------------------------------------------------------------------------*/
+
+.project-nav{
+	position: relative;
+	margin: 0 auto 50px;
+	width: 90%;
+	clear: both;
+	text-align: center;
+	font-size: 1em;
+	height: 60px;
+	padding: 16px 0 0 0;
+	@include clearfix;
+	@include transition(.1s);
+
+	&.bottom{
+		margin: 0 auto 50px;
+	}
+
+	a{
+		position: relative;
+		display: inline-block;
+		font-weight: 600;
+		text-decoration: none;
+		color: #aaa;
+		padding: 0 5px;
+		z-index: 1;
+		background-clip: padding-box;
+		@include transition(.1s);
+
+		&:hover{
+			color: #777;
+
+			&:after{
+				opacity: 1;
+			}
+		}
+
+		&.dir:after{
+			content: attr(data-title);
+			font-size: 1.1em;
+			font-weight: 700;
+			background: transparent;
+			position: absolute;
+			padding: 40px 20px 30px 20px;
+			top: -23px;
+			opacity: .7;
+			text-transform: none;
+		}
+		&.peakfoods{
+			&:after{
+				color: $peakfoods;
+			}
+		}
+		&.bpn{
+			&:after{
+				color: $bpn;
+			}
+		}
+		&.ariston-jacks{
+			&:after{
+				color: $aristonjacks;
+			}
+		}
+		&.streetsync{
+			&:after{
+				color: $streetsync;
+			}
+		}
+		&.stats{
+			&:after{
+				color: $stats;
+			}
+		}
+		&.forge{
+			&:after{
+				color: $forge;
+			}
+		}
+		&.vuact{
+			&:after{
+				color: $vuact;
+			}
+		}
+
+	}
+
+	.prev{
+		position: absolute;
+		left: 0;
+		text-align: left;
+
+		&:after{
+			left: 10px;
+			width: 200px;
+			margin-left: -25px;
+		}
+	}
+
+	.root{
+		text-align: center;
+		padding: 30px 5px;
+		margin-top: -30px;
+
+
+	}
+	.next{
+		position: absolute;
+		right: 0;
+		text-align: right;
+
+		&:after{
+			right: 10px;
+			width: 200px;
+			margin-right: -25px;
+		}
+	}
+}
+
+/*********************  Project Title */
+
+.project-title{
+	float: left;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 25px;
+	line-height: 1;
+
+	h1{
+		text-transform: none;
+		font-size: 4em;
+		margin: 0;
+		letter-spacing: -2px;
+		font-weight: 700;
+	}
+	h2{
+		font-size: 1.2em;
+		font-weight: 200;
+		color: #888;
+		margin: 8px 0 20px 0;
+		text-transform: none;
+
+	}
+}
+
+/*********************  Photo Slider */
+
+.carousel{
+	width: 500px;
+	height: 800px;
+}
+
+/*********************  Project Details */
+
+.project-details{
+	margin: 20px auto 70px;
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: 1000px;
+	text-align: center;
+	clear: both;
+	@include clearfix;
+
+	h3{
+		font-size: 1.3em;
+		font-weight: 700;
+	}
+
+	.background, .contributions{
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+		font-size: 1.2em;
+		line-height: 1.5;
+	}
+
+	.background{
+		width: 50%;
+		margin: 0 50px 0 0;
+
+	}
+
+	.contributions{
+		width: 25%;
+		line-height: 2;
+
+		ul{
+			float: left;
+			margin: 0;
+			list-style-type: square ;
+		}
+	}
+
+}

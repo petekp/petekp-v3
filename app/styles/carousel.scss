@@ -1,0 +1,13 @@
+@import "../bower_components/owlcarousel/owl-carousel/owl.carousel.css";
+@import "../bower_components/owlcarousel/owl-carousel/owl.transitions.css";
+
+#owl-demo{
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
