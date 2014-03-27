@@ -1,7 +1,12 @@
-node_modules
-dist
+._*
 .tmp
 .sass-cache
+.DS_Store
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+dist
+node_modules
 app/bower_components
 test/bower_components
-.DS_Store
