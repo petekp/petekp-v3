@@ -1,0 +1,76 @@
+.page-header{
+  background-image: url(/images/layout/bg-page-header.jpg);
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #4D5C21;
+
+  a{
+    color: #c3f777;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+  a:hover{
+    color: darken(#c3f777, 10%);
+  }
+}
+
+.me{
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  border: 1px solid #c3f777;
+}
+
+
+.page-header-content{
+  text-align: center;
+  color: #fff;
+  padding-top: 4em;
+  cursor: default;
+
+  span{
+    display: block;
+  }
+  .name{
+    font-size: 2.5em;
+    margin: .2em 0 .1em;
+  }
+  .occupation{
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 100;
+  }
+  .links{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &:before{
+      content: "––––––––";
+      color: #c3f777;
+      opacity: .5;
+      display: block;
+      margin: .5em 0 .8em;
+    }
+
+    li{
+      display: inline-block;
+      padding: 0 .6em;
+    }
+
+  }
+  @include media(min-width 320px max-width 480px, 1) {
+      .name{
+        font-size: 2.2em;
+      }
+      .occupation{
+        font-size: 1.3em;
+      }
+      .links{
+        font-size: 1.3em;
+      }
+  }
+}

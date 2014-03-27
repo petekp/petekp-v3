@@ -2,6 +2,8 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
+    @include outer-container;
 }
 
 .project-item{
@@ -10,12 +12,17 @@
   @include backface-visibility(hidden);
   @include transition(all .16s ease);
   position: relative;
-  margin-bottom: golden-ratio(.2em, 1);
   height: 13em;
   color: #fff;
   overflow: hidden;
   text-align: center;
   font-family: 'Open Sans';
+  display: inline-block;
+  float: none;
+
+  @include media(min-width 320px max-width 480px, 1) {
+      @include span-columns(1);
+  }
 
   &:before {
     content: '';
@@ -45,7 +52,7 @@
       @include transform(translate(0, -1rem));
     }
   }
-  a{
+  a, a:hover{
     color: #fff;
   }
 

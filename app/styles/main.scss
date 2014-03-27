@@ -1,11 +1,13 @@
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-@import "variables";
 @import "../bower_components/normalize-scss/normalize";
+@import "variables";
 @import "../bower_components/neat/app/assets/stylesheets/neat";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 @import "project-thumbs";
+@import "page-header";
 @import "projects";
 @import "carousel";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
 
 body{
   font-family: "Palatino", "Palatino Linotype", "Open Sans", sans-serif;
@@ -25,77 +27,19 @@ body{
 a{
   color: darken($themeColorPrimary, 20%);
   text-decoration: none;
-  font-weight: 600;
 }
 a:hover{
   color: darken($themeColorPrimary, 30%);
 }
 
-.page-header{
-  background-image: url(/images/layout/bg-page-header.jpg);
-  background-size: cover;
-  height: 400px;
-  width: 100%;
-  margin-bottom: 0;
-  background-color: #4D5C21;
 
-  a{
-    color: #c3f777;
-    text-decoration: none;
-    font-size: 1.1em;
-  }
-  a:hover{
-    color: darken(#c3f777, 10%);
-  }
-}
-
-.me{
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 4px;
-  border: 1px solid #c3f777;
-}
-.page-header-content{
-  text-align: center;
-  color: #fff;
-  padding-top: 4em;
-
-  span{
-    display: block;
-  }
-  .name{
-    font-size: 2.5em;
-    margin: .2em 0 .1em;
-  }
-  .occupation{
-    font-size: 1.5em;
-    font-style: italic;
-    font-weight: 100;
-  }
-  .links{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    &:before{
-      content: "––––––––";
-      color: #c3f777;
-      opacity: .5;
-      display: block;
-      margin: .5em 0 .8em;
-    }
-
-    li{
-      display: inline-block;
-      padding: 0 .6em;
-    }
-
-  }
-}
 
 .page-content{
   margin: 70px 0;
+  min-height: 300px;
+}
+.project-window{
+  min-height: 300px;
 }
 section{
   margin: 0 0 80px 0;
@@ -107,6 +51,7 @@ section header{
   font-family: Palatino;
   font-size: 1.3em;
   color: #777;
+  cursor: default;
 
   &:after{
     content: "––";
@@ -125,6 +70,7 @@ section header{
   font-size: 1.4em;
   z-index: 999;
   color: darken($themeColorPrimary, 40%);
+  cursor: default;
 
   a{
     color: darken($themeColorPrimary, 50%);
@@ -132,9 +78,20 @@ section header{
     border-bottom: 1px solid darken($themeColorPrimary, 20%);
 
     &:hover{
-
       border-bottom: 1px solid darken($themeColorPrimary, 30%);
     }
+  }
+  @include media(max-width 768px, 1) {
+      font-size: 1.3em;
+      padding: 1.2em 0;
+
+      span{
+        position: relative;
+        display: block;
+        margin: 0 0 7px 0;
+        font-size: 1.4em;
+        color: darken($themeColorPrimary, 50%);
+      }
   }
 }
 
@@ -145,6 +102,10 @@ section header{
   .project-item{
     @include span-columns(6);
     @include omega(2n);
+
+    @include media(min-width 320px max-width 480px, 1) {
+        @include span-columns(1);
+    }
   }
 }
 
@@ -159,23 +120,20 @@ section header{
     margin: 0;
     padding: 0;
     font-weight: 600;
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
   li{
-    margin: 0 0 30px;
+    margin: 0 0 26px;
   }
-
   span{
     color: #aaa;
     font-weight: normal;
-    display: block;
-    font-size: .7em;
+    font-size: .8em;
   }
 }
 
 .contact{
   text-align: center;
-  margin: 0;
 
   h2{
     color: #444;
