@@ -22,6 +22,15 @@ body{
   @include outer-container;
 }
 
+a{
+  color: darken($themeColorPrimary, 20%);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover{
+  color: darken($themeColorPrimary, 30%);
+}
+
 .page-header{
   background-image: url(/images/layout/bg-page-header.jpg);
   background-size: cover;
@@ -79,7 +88,7 @@ body{
 
     li{
       display: inline-block;
-      padding: 0 .8em;
+      padding: 0 .6em;
     }
 
   }
@@ -89,7 +98,7 @@ body{
   margin: 70px 0;
 }
 section{
-  margin: 0 0 90px 0;
+  margin: 0 0 80px 0;
   @include clearfix;
 }
 section header{
@@ -110,21 +119,21 @@ section header{
 .notice{
   position: relative;
   width: 100%;
-  background: rgba(77, 217, 142, .95);
+  background: $themeColorPrimary;
   padding: .8em 0;
   text-align: center;
   font-size: 1.4em;
   z-index: 999;
-  color: #0A371C;
+  color: darken($themeColorPrimary, 40%);
 
   a{
-    color: rgba(10, 55, 28,1);
+    color: darken($themeColorPrimary, 50%);
     text-decoration: none;
-    border-bottom: 1px solid rgba(10, 55, 28,.3);
+    border-bottom: 1px solid darken($themeColorPrimary, 20%);
 
     &:hover{
 
-      border-bottom: 1px solid rgba(10, 55, 28,.8);
+      border-bottom: 1px solid darken($themeColorPrimary, 30%);
     }
   }
 }
@@ -140,11 +149,10 @@ section header{
 }
 
 .skills{
-  padding: 0 0 0 50px;
   line-height: 1.5;
   color: #444;
   text-align: center;
-  margin: 0;
+
 
   ul{
     list-style-type: none;
@@ -162,6 +170,25 @@ section header{
     font-weight: normal;
     display: block;
     font-size: .7em;
+  }
+}
+
+.contact{
+  text-align: center;
+  margin: 0;
+
+  h2{
+    color: #444;
+  }
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    display: inline-block;
+    margin: 0 4px;
+
   }
 }
 
