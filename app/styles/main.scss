@@ -33,6 +33,10 @@ body{
   a{
     color: #c3f777;
     text-decoration: none;
+    font-size: 1.1em;
+  }
+  a:hover{
+    color: darken(#c3f777, 10%);
   }
 }
 
@@ -106,12 +110,23 @@ section header{
 .notice{
   position: relative;
   width: 100%;
-  background: rgba(169, 205, 89, 0.95);
+  background: rgba(77, 217, 142, .95);
   padding: .8em 0;
   text-align: center;
   font-size: 1.4em;
   z-index: 999;
-  color: #313E17;
+  color: #0A371C;
+
+  a{
+    color: rgba(10, 55, 28,1);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(10, 55, 28,.3);
+
+    &:hover{
+
+      border-bottom: 1px solid rgba(10, 55, 28,.8);
+    }
+  }
 }
 
 
@@ -124,26 +139,29 @@ section header{
   }
 }
 
-.about-me{
-  .photo{
-    @include span-columns(5);
-    img{
-      max-width: 100%;
-    }
-  }
-  .text{
-    @include span-columns(7);
-    padding: 0 0 0 50px;
-    line-height: 1.5;
-    font-size: 1.2em;
-    color: #444;
+.skills{
+  padding: 0 0 0 50px;
+  line-height: 1.5;
+  color: #444;
+  text-align: center;
+  margin: 0;
 
-    p{
-      font-size: 1.4em;
-      line-height: 1.4em;
-      color: #444;
-      margin: 0 0 12px 0;
-    }
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.3em;
+  }
+  li{
+    margin: 0 0 30px;
+  }
+
+  span{
+    color: #aaa;
+    font-weight: normal;
+    display: block;
+    font-size: .7em;
   }
 }
 

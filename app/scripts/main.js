@@ -2,6 +2,11 @@
 
 $(document).ready(function() {
 
+    $(window).scroll(function(){
+        var scrollVar = $(window).scrollTop();
+        $('.page-header-content').css({'opacity': (250 - scrollVar) / 100 });
+    });
+
     $('.notice').sticky({
         topSpacing: 0,
         getWidthFrom: '.sticky'
@@ -24,6 +29,5 @@ $(document).ready(function() {
     $('.item').click(function(){
         owl.trigger('owl.next');
     });
-
-    console.log('main.js loaded');
+    
 });
