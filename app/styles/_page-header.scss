@@ -1,10 +1,9 @@
 .page-header{
-  background-image: url(/images/layout/bg-page-header.jpg);
-  background-size: cover;
+  position: relative;
   height: 400px;
   width: 100%;
   margin-bottom: 0;
-  background-color: #4D5C21;
+  background-color: darken($themeColorPrimary, 45%);
 
   a{
     color: #c3f777;
@@ -15,21 +14,24 @@
     color: darken(#c3f777, 10%);
   }
 }
-
-.me{
-  display: inline-block;
-  width: 120px;
-  height: 120px;
-  border-radius: 4px;
-  border: 1px solid #c3f777;
+.page-header__bg{
+  @include size(100%);
+  @include position(absolute, 0px 0px 0px 0px);
+  opacity: .95;
+  background-image: url(/images/layout/bg-page-header.jpg);
+  background-size: cover;
+  z-index: 1;
 }
 
 
-.page-header-content{
+
+.page-header__content{
+  position: relative;
+  padding-top: 4em;
   text-align: center;
   color: #fff;
-  padding-top: 4em;
   cursor: default;
+  z-index: 2;
 
   span{
     display: block;

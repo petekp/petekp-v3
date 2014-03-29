@@ -49,6 +49,13 @@ a:hover{
   }
 }
 
+.me{
+  @include size(120);
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #c3f777;
+}
+
 
 .hidden{
   opacity: 0 !important;

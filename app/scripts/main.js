@@ -2,14 +2,20 @@
 
 $(document).ready(function() {
 
-    // fade header content on downward scroll
     $(window).scroll(function() {
-        var scrollVar = $(window).scrollTop(),
-            pageHeader = $('.page-header-content');
 
-        pageHeader.css({
+        var scrollVar = $(window).scrollTop(),
+            pageHeaderContent = $('.page-header__content'),
+            pageHeaderBg = $('.page-header__bg');
+        
+        pageHeaderContent.css({
             'opacity': (250 - scrollVar) / 100
         });
+        pageHeaderBg.css({
+            'opacity': (300 - scrollVar) / 300
+        });
+        console.log(pageHeaderBg.css('opacity'));
+
     });
 
     // sticky notice bar
