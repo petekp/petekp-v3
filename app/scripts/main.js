@@ -4,8 +4,10 @@ $(document).ready(function() {
 
     // fade header content on downward scroll
     $(window).scroll(function() {
-        var scrollVar = $(window).scrollTop();
-        $('.page-header-content').css({
+        var scrollVar = $(window).scrollTop(),
+            pageHeader = $('.page-header-content');
+
+        pageHeader.css({
             'opacity': (250 - scrollVar) / 100
         });
     });
@@ -21,15 +23,10 @@ $(document).ready(function() {
         var owl = $('#owl-demo');
 
         owl.owlCarousel({
-            autoplay: 3000,
             slideSpeed: 750,
-            lazyLoad: true,
             navigation: true,
             singleItem: true,
-            pagination: true,
-            lazyEffect: 'fade',
-            itemsDesktop: [1199, 4],
-            itemsDesktopSmall: [979, 4]
+            pagination: true
         });
 
         $('.item').click(function() {
@@ -62,25 +59,27 @@ $(document).ready(function() {
     // get project html and display it in .project-window
     function getProject(url) {
 
-        $('.project-window').addClass('hidden').on('transitionend webkitTransitionEnd', event, function() {
-            event.stopPropagation();
+        $('.loading-spinner').toggleClass('hidden');
 
-            $('.project-window').off('transitionend webkitTransitionEnd');
+        projectWindow
+            .addClass('hidden')
+            .on('transitionend webkitTransitionEnd', function(e) {
+                e.stopPropagation();
 
-            $('.project-window').load(url, function() {
-                initCarousel();
-                $('.loading-spinner').toggle();
-                $('.project-window').removeClass('hidden');
+                projectWindow.off('transitionend webkitTransitionEnd');
+
+                setTimeout(function() {
+                    projectWindow.load(url, function() {
+                        initCarousel();
+                        $('.loading-spinner').toggleClass('hidden');
+                        $('.project-window').removeClass('hidden')
+                            .on('transitionend webkitTransitionEnd', function(e) {
+                                e.stopPropagation();
+                                projectWindow.off('transitionend webkitTransitionEnd');
+                            });
+                    });
+                }, 300);
             });
-
-        });
-
-
-        $('.loading-spinner').toggle();
-
-
-
-        console.log('loading ' + url + '...');
     }
 
     // display project list initially

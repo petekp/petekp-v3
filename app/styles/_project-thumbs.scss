@@ -10,7 +10,7 @@
   @include span-columns(4);
   @include omega(3n);
   @include backface-visibility(hidden);
-  @include transition(all .16s ease);
+  @include transition(all .25s ease);
   position: relative;
   height: 13em;
   color: #fff;
@@ -117,7 +117,7 @@
 }
 
 .project-item__cover, .project-item__title{
-  @include transition(all .16s ease);
+  @include transition(all .25s ease);
 }
 .project-item__cover{
   position: absolute;
@@ -140,7 +140,7 @@
   margin-bottom: -1rem;
   z-index: 2;
   cursor: pointer;
-  @include transition(all .16s ease);
+  @include transition(all .25s ease);
 
   &:after{
     content: 'view details →';
@@ -149,6 +149,6 @@
     font-style: italic;
     font-family: 'Palatino', 'Palatino Linotype', sans-serif;
     opacity: 0;
-    @include transition(all .16s ease);
+    @include transition(all .25s ease);
   }
 }
