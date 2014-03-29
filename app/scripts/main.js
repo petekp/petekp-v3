@@ -2,6 +2,7 @@
 
 $(document).ready(function() {
 
+    // fade header content on downward scroll
     $(window).scroll(function() {
         var scrollVar = $(window).scrollTop();
         $('.page-header-content').css({
@@ -9,11 +10,13 @@ $(document).ready(function() {
         });
     });
 
+    // sticky notice bar
     $('.notice').sticky({
         topSpacing: 0,
         getWidthFrom: '.sticky'
     });
 
+    // init owl carousel
     function initCarousel() {
         var owl = $('#owl-demo');
 
@@ -34,37 +37,47 @@ $(document).ready(function() {
         });
     }
 
+    var projectWindow = $('.project-window');
+
+    // get project html and display it in .project-window
     function getProject(url) {
-        $.ajax({
-            type: 'GET',
-            url: url,
-            success: showProject
-        });
-    }
 
+        $('.loading-spinner').fadeIn();
 
+        projectWindow.fadeOut(function() {
 
-    function showProject(data) {
-        $('.project-window').fadeOut(function() {
-            $('.project-window').html(data);
-            $('.root').on('click', function(e) {
-                e.preventDefault();
-                getProject('/projects-list.html');
+            $(this).load(url, function() {
+                initCarousel();
+
+                // re-bind event handlers
+                $('.root').on('click', function(e) {
+                    e.preventDefault();
+                    getProject('/project-list.html');
+                });
+
+                $('.project-item-link').on('click', function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('href');
+
+                    // Prevent multiple clicks within 3s window
+                    if (!$(this).data('isClicked')) {
+                        var link = $(this);
+                        getProject(url);
+
+                        link.data('isClicked', true);
+                        setTimeout(function() {
+                            link.removeData('isClicked');
+                        }, 3000);
+                    }
+                });
+                $('.loading-spinner').fadeOut();
             });
-            $('.project-item-link').on('click', function(e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                console.log('loading ' + url + '...');
-                getProject(url);
-            });
-            initCarousel();
         }).fadeIn();
+
+        console.log('loading ' + url + '...');
     }
 
-
-
-    getProject('/projects-list.html');
-
-
+    // display project list initially
+    getProject('/project-list.html');
 
 });
