@@ -1,0 +1,112 @@
+body{
+  font-family: "Palatino", "Palatino Linotype", "Open Sans", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+  text-rendering: optimizeLegibility !important;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.wrapper{
+  @include outer-container;
+}
+
+a{
+  color: darken($themeColorPrimary, 20%);
+  text-decoration: none;
+}
+a:hover{
+  color: darken($themeColorPrimary, 30%);
+}
+
+.loading-spinner{
+  @include position(fixed, 50% 0 0 50%);
+  @include transition(all .2s $ease-in-out-circ);
+  @include size(50);
+  margin: -25px 0 0 -25px;
+  border-radius: 50%;
+  background-color: #ccc;
+  pointer-events: none;
+  border: 4px solid #fff;
+  display: none;
+
+  &.hidden{
+    @include transform(translateY(30px));
+  }
+}
+.me{
+  @include size(120);
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #c3f777;
+}
+.hidden{
+  opacity: 0 !important;
+}
+
+.page-content{
+  margin: 70px 0;
+  min-height: 300px;
+}
+section{
+  margin: 0 0 80px 0;
+  @include clearfix;
+}
+section header{
+  @include user-select(none);
+  text-align: center;
+  font-style: italic;
+  font-family: Palatino;
+  font-size: 1.3em;
+  color: #777;
+  cursor: default;
+
+  &:after{
+    content: "––";
+    color: #ddd;
+    display: block;
+    margin: .2em 0 .5em;
+  }
+}
+.notice{
+  position: relative;
+  width: 100%;
+  background: $themeColorPrimary;
+  padding: .8em 0;
+  text-align: center;
+  font-size: 1.4em;
+  z-index: 999;
+  color: darken($themeColorPrimary, 40%);
+  cursor: default;
+
+  a{
+    color: darken($themeColorPrimary, 50%);
+    text-decoration: none;
+    border-bottom: 1px solid darken($themeColorPrimary, 20%);
+
+    &:hover{
+      border-bottom: 1px solid darken($themeColorPrimary, 30%);
+    }
+  }
+  @include media(max-width 768px, 1) {
+      font-size: 1.3em;
+      padding: 1.2em 0;
+
+      span{
+        position: relative;
+        display: block;
+        margin: 0 0 7px 0;
+        font-size: 1.4em;
+        color: darken($themeColorPrimary, 50%);
+      }
+  }
+}

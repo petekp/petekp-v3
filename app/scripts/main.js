@@ -2,21 +2,22 @@
 
 $(document).ready(function() {
 
-    $(window).scroll(function() {
+    /*
+        Fancy header fading on scroll.
+        Disabled to improve page performance.
+    */
 
-        var scrollVar = $(window).scrollTop(),
-            pageHeaderContent = $('.page-header__content'),
-            pageHeaderBg = $('.page-header__bg');
-        
-        pageHeaderContent.css({
-            'opacity': (250 - scrollVar) / 100
-        });
-        pageHeaderBg.css({
-            'opacity': (300 - scrollVar) / 300
-        });
-        console.log(pageHeaderBg.css('opacity'));
-
-    });
+    // $(window).scroll(function() {
+    //     var scrollVar = $(window).scrollTop(),
+    //         pageHeaderContent = $('.page-header__content'),
+    //         pageHeaderBg = $('.page-header__bg');
+    //     pageHeaderContent.css({
+    //         'opacity': (250 - scrollVar) / 100
+    //     });
+    //     pageHeaderBg.css({
+    //         'opacity': (300 - scrollVar) / 300
+    //     });
+    // });
 
     // sticky notice bar
     $('.notice').sticky({
@@ -45,6 +46,8 @@ $(document).ready(function() {
     projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();
 
+        $('.project-item-link').not($(this)).parent().addClass('hidden');
+
         // get project url
         var url = $(this).attr('href');
 
@@ -60,7 +63,6 @@ $(document).ready(function() {
             }, 3000);
         }
     });
-
 
     // get project html and display it in .project-window
     function getProject(url) {
@@ -84,7 +86,7 @@ $(document).ready(function() {
                                 projectWindow.off('transitionend webkitTransitionEnd');
                             });
                     });
-                }, 300);
+                }, 500);
             });
     }
 
