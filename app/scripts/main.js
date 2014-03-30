@@ -46,6 +46,9 @@ $(document).ready(function() {
     projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();
 
+        // Enable auto-scroll
+        firstVisit = 0;
+
         $('.project-item-link').not($(this)).parent().addClass('hidden');
 
         // get project url
@@ -64,8 +67,17 @@ $(document).ready(function() {
         }
     });
 
+    // Disable auto-scroll on initial page load
+    var firstVisit = 1;
+
     // get project html and display it in .project-window
     function getProject(url) {
+
+        $('html').css({
+            'overflow': 'hidden'
+        });
+
+        console.log(firstVisit);
 
         $('.loading-spinner').toggleClass('hidden');
 
@@ -73,20 +85,39 @@ $(document).ready(function() {
             .addClass('hidden')
             .on('transitionend webkitTransitionEnd', function(e) {
                 e.stopPropagation();
-
                 projectWindow.off('transitionend webkitTransitionEnd');
 
-                setTimeout(function() {
-                    projectWindow.load(url, function() {
-                        initCarousel();
-                        $('.loading-spinner').toggleClass('hidden');
-                        $('.project-window').removeClass('hidden')
-                            .on('transitionend webkitTransitionEnd', function(e) {
-                                e.stopPropagation();
-                                projectWindow.off('transitionend webkitTransitionEnd');
-                            });
+                function loadProject() {
+
+                    setTimeout(function() {
+                        projectWindow.load(url, function() {
+                            initCarousel();
+                            $('.loading-spinner').toggleClass('hidden');
+                            $('.project-window')
+                                .removeClass('hidden')
+                                .on('transitionend webkitTransitionEnd', function(e) {
+                                    e.stopPropagation();
+                                    projectWindow.off('transitionend webkitTransitionEnd');
+                                    $('html').css({
+                                        'overflow': 'visible'
+                                    });
+                                });
+                        });
+                    }, 100);
+                }
+
+                // If user's first visit, disable the auto-page scroll on getProject()
+                if (firstVisit !== 1) {
+                    $.smoothScroll({
+                        scrollTarget: '.page-content',
+                        afterScroll: loadProject,
+                        offset: -100,
+                        speed: 400
                     });
-                }, 500);
+
+                } else {
+                    loadProject();
+                }
             });
     }
 

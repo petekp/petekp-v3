@@ -1,6 +1,6 @@
 .project-window{
   min-height: 300px;
-  @include transition(all .45s $ease-in-out-circ);
+  @include transition(all .4s $ease-in-out-circ);
   &.hidden{
   }
 }
