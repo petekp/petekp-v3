@@ -1,3 +1,20 @@
+* {
+  ::selection {
+    background: opacify($themeColorPrimary, .2); /* Safari */
+    color: #fff;
+    }
+  ::-moz-selection {
+    background: opacify($themeColorPrimary, .2); /* Firefox */
+    color: #fff;
+  }
+}
+
+html{
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+
+}
+
 body{
   font-family: "Palatino", "Palatino Linotype", "Open Sans", sans-serif;
   color: #333;

@@ -20,10 +20,10 @@ $(document).ready(function() {
     // });
 
     // sticky notice bar
-    $('.notice').sticky({
-        topSpacing: 0,
-        getWidthFrom: '.sticky'
-    });
+    // $('.notice').sticky({
+    //     topSpacing: 0,
+    //     getWidthFrom: '.sticky'
+    // });
 
     // init owl carousel
     function initCarousel() {
@@ -46,8 +46,8 @@ $(document).ready(function() {
     projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();
 
-        // Enable auto-scroll
-        firstVisit = 0;
+        // Not initial page load, so enable auto-scrolling
+        initPageLoad = 0;
 
         $('.project-item-link').not($(this)).parent().addClass('hidden');
 
@@ -56,11 +56,10 @@ $(document).ready(function() {
 
         // Prevent multiple clicks within 3s window
         if (!$(this).data('isClicked')) {
-            var link = $(this);
-
             getProject(url);
-
+            var link = $(this);
             link.data('isClicked', true);
+
             setTimeout(function() {
                 link.removeData('isClicked');
             }, 3000);
@@ -68,17 +67,10 @@ $(document).ready(function() {
     });
 
     // Disable auto-scroll on initial page load
-    var firstVisit = 1;
+    var initPageLoad = 1;
 
     // get project html and display it in .project-window
     function getProject(url) {
-
-        $('html').css({
-            'overflow': 'hidden'
-        });
-
-        console.log(firstVisit);
-
         $('.loading-spinner').toggleClass('hidden');
 
         projectWindow
@@ -87,38 +79,41 @@ $(document).ready(function() {
                 e.stopPropagation();
                 projectWindow.off('transitionend webkitTransitionEnd');
 
-                function loadProject() {
-
-                    setTimeout(function() {
-                        projectWindow.load(url, function() {
-                            initCarousel();
-                            $('.loading-spinner').toggleClass('hidden');
-                            $('.project-window')
-                                .removeClass('hidden')
-                                .on('transitionend webkitTransitionEnd', function(e) {
-                                    e.stopPropagation();
-                                    projectWindow.off('transitionend webkitTransitionEnd');
-                                    $('html').css({
-                                        'overflow': 'visible'
-                                    });
-                                });
-                        });
-                    }, 100);
-                }
-
-                // If user's first visit, disable the auto-page scroll on getProject()
-                if (firstVisit !== 1) {
+                // If not initial page load, scroll to top of newly loaded projects
+                if (initPageLoad !== 1) {
                     $.smoothScroll({
                         scrollTarget: '.page-content',
-                        afterScroll: loadProject,
-                        offset: -100,
-                        speed: 400
+                        afterScroll: loadProject(url),
+                        offset: -20,
+                        speed: 400,
+                        easing: 'swing'
                     });
 
                 } else {
-                    loadProject();
+                    loadProject(url);
                 }
             });
+    }
+
+    function loadProject(url) {
+        // Give the fade animation some margin to avoid sudden flash of loaded content
+        setTimeout(function() {
+
+            // load the project into project window
+            projectWindow.load(url, function() {
+
+                // after load, do this stuff
+                initCarousel();
+                $('.loading-spinner').toggleClass('hidden');
+                $('.project-window')
+                    .removeClass('hidden')
+                    .on('transitionend webkitTransitionEnd', function(e) {
+                        e.stopPropagation();
+                        projectWindow.off('transitionend webkitTransitionEnd');
+
+                    });
+            });
+        }, 400);
     }
 
     // display project list initially

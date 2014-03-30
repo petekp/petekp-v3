@@ -10,7 +10,7 @@
   @include span-columns(4);
   @include omega(3n);
   @include backface-visibility(hidden);
-  @include transition(all .25s ease);
+  @include transition(all .13s $ease-in-out-quad);
   @include user-select(none);
   position: relative;
   height: 13em;
@@ -122,7 +122,7 @@
 }
 
 .project-item__cover, .project-item__title{
-  @include transition(all .25s ease);
+  @include transition(all .13s $ease-in-out-quad);
 }
 .project-item__cover{
   position: absolute;
