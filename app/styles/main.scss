@@ -1,9 +1,12 @@
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../bower_components/normalize-scss/normalize";
 @import "variables";
+
 @import "../bower_components/neat/app/assets/stylesheets/neat";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
 @import "global";
+@import "placeholders";
 @import "project-thumbs";
 @import "page-header";
 @import "projects";

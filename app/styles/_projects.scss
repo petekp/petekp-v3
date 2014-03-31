@@ -6,15 +6,23 @@
 
 .project-nav{
 	position: relative;
-	margin: 0 auto 50px;
-	width: 90%;
 	clear: both;
 	text-align: center;
 	font-size: 1em;
 	height: 60px;
 	padding: 16px 0 0 0;
 	@include clearfix;
-	@include transition(.1s);
+	@include transition(.15s);
+
+	&:first-child{
+		margin: -40px 0 20px 0;
+	}
+
+	&:last-child{
+		margin-bottom: 80px;
+		border-bottom: 1px solid #eee;
+		padding: 0 0 30px 0;
+	}
 
 	&.bottom{
 		margin: 0 auto 50px;
@@ -25,7 +33,6 @@
 		display: inline-block;
 		font-weight: 600;
 		text-decoration: none;
-		color: #aaa;
 		padding: 0 5px;
 		z-index: 1;
 		background-clip: padding-box;
@@ -41,51 +48,16 @@
 
 		&.dir:after{
 			content: attr(data-title);
-			font-size: 1.1em;
-			font-weight: 700;
+			font-size: 1em;
+			font-weight: 600;
 			background: transparent;
+			font-family: "Open Sans";
 			position: absolute;
 			padding: 40px 20px 30px 20px;
 			top: -23px;
 			opacity: .7;
 			text-transform: none;
 		}
-		&.peakfoods{
-			&:after{
-				color: $peakfoods;
-			}
-		}
-		&.bpn{
-			&:after{
-				color: $bpn;
-			}
-		}
-		&.ariston-jacks{
-			&:after{
-				color: $aristonjacks;
-			}
-		}
-		&.streetsync{
-			&:after{
-				color: $streetsync;
-			}
-		}
-		&.stats{
-			&:after{
-				color: $stats;
-			}
-		}
-		&.forge{
-			&:after{
-				color: $forge;
-			}
-		}
-		&.vuact{
-			&:after{
-				color: $vuact;
-			}
-		}
-
 	}
 
 	.prev{
@@ -104,7 +76,7 @@
 		text-align: center;
 		padding: 30px 5px;
 		margin-top: -30px;
-
+		font-size: 1.2em;
 
 	}
 	.next{
@@ -123,6 +95,7 @@
 /*********************  Project Title */
 
 .project-title{
+
 	float: left;
 	display: block;
 	width: 100%;
@@ -131,9 +104,10 @@
 	line-height: 1;
 
 	h1{
+		@extend %sans-serif;
 		text-transform: none;
-		font-size: 4em;
-		margin: 0;
+		font-size: 3em;
+		margin: 0 0 14px 0;
 		letter-spacing: -2px;
 		font-weight: 700;
 	}
@@ -141,7 +115,7 @@
 		font-size: 1.2em;
 		font-weight: 200;
 		color: #888;
-		margin: 8px 0 20px 0;
+		margin: 8px 0;
 		text-transform: none;
 
 	}
@@ -167,7 +141,8 @@
 	@include clearfix;
 
 	h3{
-		font-size: 1.3em;
+		@extend %sans-serif;
+		font-size: 1.2em;
 		font-weight: 700;
 	}
 

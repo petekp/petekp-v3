@@ -1,6 +1,7 @@
 .page-header{
+  @extend %vertically-center-children;
   position: relative;
-  height: 400px;
+  height: 500px;
   width: 100%;
   margin-bottom: 0;
   background-color: darken($themeColorPrimary, 45%);
@@ -17,28 +18,31 @@
 .page-header__bg{
   @include size(100%);
   @include position(absolute, 0px 0px 0px 0px);
-  opacity: .95;
   background-image: url(/images/layout/bg-page-header.jpg);
   background-size: cover;
+  background-position: center;
+  opacity: .95;
   z-index: 1;
 }
 .page-header__content{
   position: relative;
-  padding-top: 4em;
+  display: inline-block;
+  vertical-align: middle;
   text-align: center;
   color: #fff;
   cursor: default;
   z-index: 2;
 
+
   span{
     display: block;
   }
   .name{
-    font-size: 2.5em;
+    font-size: 3em;
     margin: .3em 0 .1em;
   }
   .occupation{
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-style: italic;
     font-weight: 100;
   }

@@ -24,6 +24,17 @@ $(document).ready(function() {
     //     topSpacing: 0,
     //     getWidthFrom: '.sticky'
     // });
+    (function bigOlHeader() {
+        var windowH = $(window).height();
+        var header = $('.page-header');
+
+        if (windowH > 700) {
+            header.css(
+                'height', $(window).height() * 0.6
+            );
+        }
+    })();
+
 
     // init owl carousel
     function initCarousel() {
@@ -84,7 +95,7 @@ $(document).ready(function() {
                     $.smoothScroll({
                         scrollTarget: '.page-content',
                         afterScroll: loadProject(url),
-                        offset: -20,
+                        offset: -50,
                         speed: 400,
                         easing: 'swing'
                     });
@@ -105,7 +116,7 @@ $(document).ready(function() {
                 // after load, do this stuff
                 initCarousel();
                 $('.loading-spinner').toggleClass('hidden');
-                $('.project-window')
+                projectWindow
                     .removeClass('hidden')
                     .on('transitionend webkitTransitionEnd', function(e) {
                         e.stopPropagation();

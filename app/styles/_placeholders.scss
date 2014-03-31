@@ -1,0 +1,31 @@
+// Animation
+%quick-transition{
+  @include transition(all .13s $ease-in-out-quad);
+}
+%midspeed-transition{
+  @include transition(all .25s ease);
+}
+%slower-transition{
+  @include transition(all .13s $ease-in-out-quad);
+}
+
+// Positioning
+%vertically-center-children{
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+}
+
+// Type
+%serif{
+  font-family: "Palatino", "Palatino Linotype", "Open Sans", sans-serif;
+}
+%sans-serif{
+  font-family: "Open Sans", sans-serif;
+}

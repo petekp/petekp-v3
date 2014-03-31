@@ -7,6 +7,8 @@
 }
 
 .project-item{
+  @extend %vertically-center-children;
+  @extend %sans-serif;
   @include span-columns(4);
   @include omega(3n);
   @include backface-visibility(hidden);
@@ -15,11 +17,10 @@
   position: relative;
   height: 13em;
   color: #fff;
-  overflow: hidden;
   text-align: center;
-  font-family: 'Open Sans';
   display: inline-block;
   float: none;
+  overflow: hidden;
 
   @include media(min-width 320px max-width 480px, 1) {
       @include span-columns(1);
@@ -27,14 +28,6 @@
 
   &.hidden{
     -webkit-transform: translate3d(0, 0, 0);
-  }
-
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em; /* Adjusts for spacing */
   }
 
   &:hover{
@@ -112,7 +105,8 @@
   }
 }
 
-.current-work{
+// Recent Work Section
+.recent-work{
   .project-item{
     height: 18em;
   }
@@ -145,7 +139,7 @@
   margin-bottom: -1rem;
   z-index: 2;
   cursor: pointer;
-  @include transition(all .25s ease);
+  @extend %midspeed-transition;
 
   &:after{
     content: 'view details →';
