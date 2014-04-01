@@ -1,12 +1,9 @@
 'use strict';
 
-$(document).ready(function() {
+(function() {
 
-    /*
-        Fancy header fading on scroll.
-        Disabled to improve page performance.
-    */
-
+    // Fancy header fading on scroll.
+    // Decided to disable to improve page-scrolling performance.
     // $(window).scroll(function() {
     //     var scrollVar = $(window).scrollTop(),
     //         pageHeaderContent = $('.page-header__content'),
@@ -19,11 +16,13 @@ $(document).ready(function() {
     //     });
     // });
 
-    // sticky notice bar
+    // Sticky Notice Bar
     // $('.notice').sticky({
     //     topSpacing: 0,
     //     getWidthFrom: '.sticky'
     // });
+
+    // Set header height to 60% of window height
     (function bigOlHeader() {
         var windowH = $(window).height();
         var header = $('.page-header');
@@ -35,8 +34,16 @@ $(document).ready(function() {
         }
     })();
 
+    // Delayed reveal of header content
+    (function revealHeader() {
+        var headerChildren = $('.page-header').children();
 
-    // init owl carousel
+        headerChildren.each(function() {
+            $(this).toggleClass('hidden');
+        });
+    })();
+
+    // Init owl carousel
     function initCarousel() {
         var owl = $('#owl-demo');
 
@@ -52,7 +59,9 @@ $(document).ready(function() {
         });
     }
 
+    // Project Viewing Component
     var projectWindow = $('.project-window');
+    projectWindow.css('min-height', '800px');
 
     projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();
@@ -60,7 +69,9 @@ $(document).ready(function() {
         // Not initial page load, so enable auto-scrolling
         initPageLoad = 0;
 
-        $('.project-item-link').not($(this)).parent().addClass('hidden');
+        // $('.page-content').css('border-color', $(this).data('color'));
+
+        $('.project-item-link').not($(this)).parent().toggleClass('hidden');
 
         // get project url
         var url = $(this).attr('href');
@@ -77,12 +88,12 @@ $(document).ready(function() {
         }
     });
 
-    // Disable auto-scroll on initial page load
+    // Disable project window auto-scroll if initial page load
     var initPageLoad = 1;
 
-    // get project html and display it in .project-window
+    // Get project html and display it in .project-window
     function getProject(url) {
-        $('.loading-spinner').toggleClass('hidden');
+        $('.loading-spinner, .project-window header').toggleClass('hidden');
 
         projectWindow
             .addClass('hidden')
@@ -95,17 +106,17 @@ $(document).ready(function() {
                     $.smoothScroll({
                         scrollTarget: '.page-content',
                         afterScroll: loadProject(url),
-                        offset: -50,
+                        offset: -10,
                         speed: 400,
                         easing: 'swing'
                     });
-
                 } else {
                     loadProject(url);
                 }
             });
     }
 
+    // Load and add project html to project window
     function loadProject(url) {
         // Give the fade animation some margin to avoid sudden flash of loaded content
         setTimeout(function() {
@@ -113,8 +124,14 @@ $(document).ready(function() {
             // load the project into project window
             projectWindow.load(url, function() {
 
+                $(this).css('height', 'auto');
+
                 // after load, do this stuff
                 initCarousel();
+                $('.project-nav').sticky({
+                    topSpacing: 0,
+                    getWidthFrom: '.wrapper'
+                });
                 $('.loading-spinner').toggleClass('hidden');
                 projectWindow
                     .removeClass('hidden')
@@ -127,7 +144,10 @@ $(document).ready(function() {
         }, 400);
     }
 
-    // display project list initially
-    getProject('/projects/project-list.html');
+    // Display project list initially
+    setTimeout(function() {
+        getProject('/projects/project-list.html');
+    }, 800);
 
-});
+
+})();

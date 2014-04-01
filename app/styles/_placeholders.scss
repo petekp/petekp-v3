@@ -6,7 +6,10 @@
   @include transition(all .25s ease);
 }
 %slower-transition{
-  @include transition(all .13s $ease-in-out-quad);
+  @include transition(all .5s $ease-in-out-quad);
+}
+%slowest-transition{
+  @include transition(all 1s $ease-in-out-quad);
 }
 
 // Positioning

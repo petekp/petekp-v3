@@ -16,13 +16,13 @@
   }
 }
 .page-header__bg{
-  @include size(100%);
   @include position(absolute, 0px 0px 0px 0px);
   background-image: url(/images/layout/bg-page-header.jpg);
   background-size: cover;
   background-position: center;
-  opacity: .95;
   z-index: 1;
+  opacity: 1;
+  @include transition(opacity 1.5s $ease-in-out-quad);
 }
 .page-header__content{
   position: relative;
@@ -33,23 +33,44 @@
   cursor: default;
   z-index: 2;
 
+  &.hidden{
+    .me, .name, .occupation, .links{
+      opacity: 0;
+    }
+    .me{
+    }
+  }
 
+  .me{
+    @extend %slower-transition;
+    @include size(130);
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #c3f777;
+    @include transition-delay(.2s);
+  }
   span{
     display: block;
   }
   .name{
-    font-size: 3em;
+    font-size: 3.2em;
     margin: .3em 0 .1em;
+    @extend %slower-transition;
+    @include transition-delay(.3s);
   }
   .occupation{
     font-size: 1.6em;
     font-style: italic;
     font-weight: 100;
+    @extend %slower-transition;
+    @include transition-delay(.4s);
   }
   .links{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    @extend %slower-transition;
+    @include transition-delay(.5s);
 
     &:before{
       content: "––––––––";

@@ -1,42 +1,174 @@
+/*  Project List
+--------------------------------------------------------------------------------------------*/
+
+.project-list{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	@include outer-container;
+}
+.project-item{
+	@extend %vertically-center-children;
+	@extend %sans-serif;
+	@include span-columns(4);
+	@include omega(3n);
+	@include backface-visibility(hidden);
+	@include transition(all .13s $ease-in-out-quad);
+	@include user-select(none);
+	position: relative;
+	height: 13em;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	float: none;
+	overflow: hidden;
+
+	@include media(min-width 320px max-width 480px, 1) {
+		@include span-columns(1);
+	}
+
+	&.hidden{
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+
+	&:hover{
+		.project-item__title{
+			@include transform(translate(0, -1rem));
+
+			&:after{
+				opacity: .7;
+			}
+		}
+	}
+	&:active{
+		@include transform(scale(.96));
+
+		.project-item__cover{
+			@include transform(scale(1.04));
+			opacity: .5;
+		}
+		.project-item__title{
+			@include transform(translate(0, -1rem));
+		}
+	}
+	a, a:hover{
+		color: #fff;
+	}
+	&.peakfoods{
+		background-color: $peakfoods;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/peakfoods-thumb.jpg);
+		}
+	}
+	&.bpn{
+		background-color: $bpn;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/bpn-thumb.png);
+		}
+	}
+	&.aristonjacks{
+		background-color: $aristonjacks;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/aristonjacks-thumb.jpg);
+		}
+	}
+	&.forge{
+		background-color: $forge;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/forge-thumb2.jpg);
+		}
+	}
+	&.streetsync{
+		background-color: $streetsync;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/streetsync-thumb.png);
+		}
+	}
+	&.stats{
+		background-color: $stats;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/stats-thumb.jpg);
+		}
+	}
+	&.vuact{
+		background-color: $vuact;
+
+		.project-item__cover{
+			background-image: url(/images/project_photos/vuact-thumb.jpg);
+		}
+	}
+}
+
+/*********************  Cover & Title */
+
+.project-item__cover, .project-item__title{
+	@include transition(all .13s $ease-in-out-quad);
+}
+.project-item__cover{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: .2;
+	background-position: 0;
+	background-size: cover;
+	z-index: 1;
+}
+.project-item__title{
+	position: relative;
+	font-size: 2rem;
+	font-weight: 200;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: -1rem;
+	z-index: 2;
+	cursor: pointer;
+	@extend %midspeed-transition;
+
+	&:after{
+		content: 'view details →';
+		display: block;
+		font-size: 1.1rem;
+		font-style: italic;
+		font-family: 'Palatino', 'Palatino Linotype', sans-serif;
+		opacity: 0;
+		@include transition(all .25s ease);
+	}
+}
 
 
 
-/*  Project Details
+/*  Project Details View
 --------------------------------------------------------------------------------------------*/
 
 .project-nav{
+	@extend %vertically-center-children;
+	@extend %midspeed-transition;
 	position: relative;
-	clear: both;
 	text-align: center;
 	font-size: 1em;
-	height: 60px;
-	padding: 16px 0 0 0;
-	@include clearfix;
-	@include transition(.15s);
-
-	&:first-child{
-		margin: -40px 0 20px 0;
-	}
-
-	&:last-child{
-		margin-bottom: 80px;
-		border-bottom: 1px solid #eee;
-		padding: 0 0 30px 0;
-	}
+	z-index: 999;
+	background: rgba(255,255,255,0.96);
+	top: -30px;
 
 	&.bottom{
 		margin: 0 auto 50px;
 	}
-
 	a{
+		@extend %quick-transition;
 		position: relative;
 		display: inline-block;
+		vertical-align: middle;
+		padding: 1.3em 0;
 		font-weight: 600;
-		text-decoration: none;
-		padding: 0 5px;
-		z-index: 1;
-		background-clip: padding-box;
-		@include transition(.1s);
 
 		&:hover{
 			color: #777;
@@ -45,50 +177,22 @@
 				opacity: 1;
 			}
 		}
-
-		&.dir:after{
-			content: attr(data-title);
-			font-size: 1em;
-			font-weight: 600;
-			background: transparent;
-			font-family: "Open Sans";
-			position: absolute;
-			padding: 40px 20px 30px 20px;
-			top: -23px;
-			opacity: .7;
-			text-transform: none;
-		}
 	}
-
-	.prev{
+	.prev, .next{
 		position: absolute;
-		left: 0;
-		text-align: left;
-
-		&:after{
-			left: 10px;
-			width: 200px;
-			margin-left: -25px;
-		}
 	}
-
+	.prev{
+		left: 2%;
+		text-align: left;
+	}
 	.root{
 		text-align: center;
-		padding: 30px 5px;
-		margin-top: -30px;
+		padding: 1em;
 		font-size: 1.2em;
-
 	}
 	.next{
-		position: absolute;
-		right: 0;
+		right: 2%;
 		text-align: right;
-
-		&:after{
-			right: 10px;
-			width: 200px;
-			margin-right: -25px;
-		}
 	}
 }
 

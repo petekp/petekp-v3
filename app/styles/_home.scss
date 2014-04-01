@@ -1,19 +1,28 @@
 .project-window{
-  @extend %slower-transition;
-  min-height: 300px;
+  @include transition(opacity .4s $ease-in-out-quad);
+  position: relative;
+
   &.hidden{
+    height: 800px;
   }
 }
+
 .recent-work{
+
   .project-item{
     @include span-columns(6);
     @include omega(2n);
+    height: 18em;
 
     @include media(min-width 320px max-width 480px, 1) {
         @include span-columns(1);
     }
   }
+  .project-item__title{
+    font-size: 2.5em;
+  }
 }
+
 .skills{
   line-height: 1.5;
   color: #444;
@@ -55,6 +64,5 @@
   li{
     display: inline-block;
     margin: 0 4px;
-
   }
 }
