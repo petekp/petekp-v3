@@ -48,6 +48,15 @@
     font-weight: normal;
     font-size: 1.1em;
   }
+  @include media(min-width 320px max-width 480px, 1) {
+      h3{
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+      span{
+        font-size: .9em;
+      }
+  }
 }
 
 .contact{
@@ -64,5 +73,11 @@
   li{
     display: inline-block;
     margin: 0 4px;
+  }
+  @include media(min-width 320px max-width 480px, 1) {
+      a{
+        font-size: 1.2em;
+        padding: 0 px;
+      }
   }
 }

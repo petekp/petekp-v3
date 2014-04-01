@@ -106,7 +106,7 @@
                     $.smoothScroll({
                         scrollTarget: '.page-content',
                         afterScroll: loadProject(url),
-                        offset: -10,
+                        offset: 20,
                         speed: 400,
                         easing: 'swing'
                     });

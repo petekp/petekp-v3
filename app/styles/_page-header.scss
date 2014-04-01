@@ -1,7 +1,7 @@
 .page-header{
   @extend %vertically-center-children;
   position: relative;
-  height: 500px;
+  height: 400px;
   width: 100%;
   margin-bottom: 0;
   background-color: darken($themeColorPrimary, 45%);
@@ -49,7 +49,7 @@
     border: 1px solid #c3f777;
     @include transition-delay(.2s);
   }
-  span{
+  div{
     display: block;
   }
   .name{
@@ -86,14 +86,21 @@
     }
   }
   @include media(min-width 320px max-width 480px, 1) {
+      .me{
+        @include size(130);
+      }
       .name{
-        font-size: 2.2em;
+        font-size: 2.3em;
       }
       .occupation{
-        font-size: 1.3em;
+        font-size: 1.2em;
+
+        span{
+          display: none;
+        }
       }
       .links{
-        font-size: 1.3em;
+        font-size: 1.1em;
       }
   }
 }

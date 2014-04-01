@@ -13,7 +13,6 @@
 	@extend %sans-serif;
 	@include span-columns(4);
 	@include omega(3n);
-	@include backface-visibility(hidden);
 	@include transition(all .13s $ease-in-out-quad);
 	@include user-select(none);
 	position: relative;
@@ -24,8 +23,14 @@
 	float: none;
 	overflow: hidden;
 
-	@include media(min-width 320px max-width 480px, 1) {
+	@include media(max-width 480px, 1) {
 		@include span-columns(1);
+		height: 8em !important;
+		margin: 0 0 1px 0;
+
+		.project-item__title{
+			font-size: 1.6em !important;
+		}
 	}
 
 	&.hidden{
@@ -104,6 +109,7 @@
 			background-image: url(/images/project_photos/vuact-thumb.jpg);
 		}
 	}
+
 }
 
 /*********************  Cover & Title */
@@ -157,7 +163,7 @@
 	font-size: 1em;
 	z-index: 999;
 	background: rgba(255,255,255,0.96);
-	top: -30px;
+	top: -25px;
 
 	&.bottom{
 		margin: 0 auto 50px;
@@ -171,11 +177,11 @@
 		font-weight: 600;
 
 		&:hover{
-			color: #777;
 
-			&:after{
-				opacity: 1;
-			}
+
+		}
+		span{
+			color: #aaa;
 		}
 	}
 	.prev, .next{
