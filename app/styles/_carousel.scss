@@ -81,4 +81,37 @@
   display: block;
   width: 100%;
   height: auto;
+  cursor: e-resize;
+
+  &.single{
+    cursor: default;
+  }
+}
+
+.owl-controls{
+  text-align: center;
+  margin: 15px 0 0 0;
+}
+.owl-pagination{
+  display: inline-block;
+}
+.owl-page{
+  @include size(12);
+  display: inline-block;
+  margin: 5px;
+  border-radius: 50%;
+  background: #ddd;
+
+  &.active{
+    background: $themeColorPrimary;
+  }
+}
+.owl-buttons{
+  display: none;
+}
+.owl-prev{
+  float: left;
+}
+.owl-next{
+  float: right;
 }

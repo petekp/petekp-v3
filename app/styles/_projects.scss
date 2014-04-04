@@ -244,7 +244,7 @@
 .project-details{
 	@include outer-container;
 	@include clearfix;
-	margin: 20px auto 70px;
+	margin: 20px auto 30px;
 	position: relative;
 	text-align: center;
 
@@ -256,8 +256,9 @@
 	}
 	h3{
 		@extend %sans-serif;
-		font-size: 1.2em;
+		font-size: 1.4em;
 		font-weight: 700;
+		text-align: center;
 	}
 	.background, .contributions{
 		@include span-columns(8);
