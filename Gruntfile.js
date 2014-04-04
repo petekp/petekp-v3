@@ -9,6 +9,9 @@
 
 module.exports = function(grunt) {
 
+    grunt.loadNpmTasks('grunt-includes');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -349,6 +352,18 @@ module.exports = function(grunt) {
                 'copy:styles',
                 'svgmin'
             ]
+        },
+        'ftp-deploy': {
+            build: {
+                auth: {
+                    host: 'petekp.com',
+                    port: 21,
+                    authKey: 'key1'
+                },
+                src: '<%= config.dist %>',
+                dest: 'domains/petekp.com/html/',
+                exclusions: ['<%= config.dist %>/**/.DS_Store', '<%= config.dist %>/**/Thumbs.db', '<%= config.dist %>/tmp']
+            }
         }
     });
 
@@ -399,7 +414,8 @@ module.exports = function(grunt) {
         'copy:dist',
         'rev',
         'usemin',
-        'htmlmin'
+        'htmlmin',
+        'ftp-deploy'
     ]);
 
     grunt.registerTask('default', [
@@ -408,5 +424,6 @@ module.exports = function(grunt) {
         'build'
     ]);
 
-    grunt.loadNpmTasks('grunt-includes');
+
+
 };

@@ -22,6 +22,8 @@
     //     getWidthFrom: '.sticky'
     // });
 
+    document.addEventListener('touchstart touchend', function() {}, true);
+
     // Set header height to 60% of window height
     (function bigOlHeader() {
         var windowH = $(window).height();
@@ -45,7 +47,7 @@
 
     // Init owl carousel
     function initCarousel() {
-        var owl = $('#owl-demo');
+        var owl = $('#project-carousel');
 
         owl.owlCarousel({
             slideSpeed: 750,
@@ -138,7 +140,6 @@
                     .on('transitionend webkitTransitionEnd', function(e) {
                         e.stopPropagation();
                         projectWindow.off('transitionend webkitTransitionEnd');
-
                     });
             });
         }, 400);
