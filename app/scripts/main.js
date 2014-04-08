@@ -22,6 +22,8 @@
     //     getWidthFrom: '.sticky'
     // });
 
+    $.stellar();
+
     document.addEventListener('touchstart touchend', function() {}, true);
 
     // Set header height to 60% of window height

@@ -17,12 +17,14 @@
 }
 .page-header__bg{
   @include position(absolute, 0px 0px 0px 0px);
+  @include transition(opacity 1.5s $ease-in-out-quad);
+  @include transform(translate3d(0,0,0));
   background-image: url(/images/layout/bg-page-header.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-attachment: scroll;
   z-index: 1;
   opacity: 1;
-  @include transition(opacity 1.5s $ease-in-out-quad);
 }
 .page-header__content{
   position: relative;
@@ -40,7 +42,6 @@
     .me{
     }
   }
-
   div{
     display: block;
   }
@@ -66,11 +67,11 @@
     @include transition-delay(.4s);
   }
   .links{
+    @extend %slower-transition;
+    @include transition-delay(.5s);
     list-style-type: none;
     margin: 0;
     padding: 0;
-    @extend %slower-transition;
-    @include transition-delay(.5s);
 
     &:before{
       content: "––––––––";
@@ -86,7 +87,6 @@
     }
   }
   @include media(min-width 320px max-width 480px, 1) {
-
       .name{
         font-size: 2.8em;
       }
