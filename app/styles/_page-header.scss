@@ -5,6 +5,7 @@
   width: 100%;
   margin-bottom: 0;
   background-color: darken($themeColorPrimary, 45%);
+  z-index: 0;
 
   a{
     color: #c3f777;
@@ -16,7 +17,7 @@
   }
 }
 .page-header__bg{
-  @include position(absolute, 0px 0px 0px 0px);
+  @include position(absolute, 0px 0px -20px 0px);
   @include transition(opacity 1.5s $ease-in-out-quad);
   @include transform(translate3d(0,0,0));
   background-image: url(/images/layout/bg-page-header.jpg);

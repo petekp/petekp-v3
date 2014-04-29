@@ -22,8 +22,10 @@
     //     getWidthFrom: '.sticky'
     // });
 
+    // Trendy Header Parallax (but it looks so cool.)
     $.stellar();
 
+    // Better touch responsiveness
     document.addEventListener('touchstart touchend', function() {}, true);
 
     // Set header height to 60% of window height

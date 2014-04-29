@@ -57,6 +57,7 @@ a:hover{
 }
 
 .loading-spinner{
+  @extend %quick-transition;
   @include position(absolute, 10px 0 0 50%);
   @include size(5em);
   @include transform(scale(.4));
@@ -113,7 +114,8 @@ a:hover{
   // border: 10px solid $themeColorPrimary;
   // border-top: none;
   // border-bottom: none;
-  padding: 50px 10px 0 10px;
+  background: #fff;
+  padding: 50px 0 0 0;
 
   @include media(max-width 768px, 1) {
     padding: 50px 0 0 0;
