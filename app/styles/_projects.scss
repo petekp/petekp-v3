@@ -89,6 +89,7 @@
 	}
 }
 
+
 /*********************  Cover & Title */
 
 .project-item__cover{
@@ -104,6 +105,7 @@
 	z-index: 1;
 }
 .project-item__title{
+	@extend %midspeed-transition;
 	position: relative;
 	font-size: 1.8rem;
 	font-weight: 200;
@@ -112,16 +114,15 @@
 	margin-bottom: -1rem;
 	z-index: 2;
 	cursor: pointer;
-	@extend %midspeed-transition;
 
 	&:after{
+		@extend %midspeed-transition;
 		content: 'view details →';
 		display: block;
 		font-size: 1.1rem;
 		font-style: italic;
 		font-family: 'Palatino', 'Palatino Linotype', sans-serif;
 		opacity: 0;
-		@include transition(all .25s ease);
 	}
 }
 
@@ -151,10 +152,6 @@
 		padding: 1.3em 0;
 		font-weight: 600;
 
-		&:hover{
-
-
-		}
 		span{
 			color: #aaa;
 		}
@@ -177,10 +174,10 @@
 	}
 }
 
+
 /*********************  Project Title */
 
 .project-title{
-
 	float: left;
 	display: block;
 	width: 100%;
@@ -206,12 +203,14 @@
 	}
 }
 
+
 /*********************  Photo Slider */
 
 .carousel{
 	width: 500px;
 	height: 800px;
 }
+
 
 /*********************  Project Details */
 
