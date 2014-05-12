@@ -50,7 +50,7 @@
     font-weight: normal;
     font-size: 1.1em;
   }
-  @include media(min-width 320px max-width 480px, 1) {
+  @include media(min-width $bp-small max-width $bp-small-3, 1) {
       h3{
         font-size: 1.2em;
         line-height: 1.5;

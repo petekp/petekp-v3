@@ -11,6 +11,9 @@
 %slowest-transition{
   @include transition(all 1s $ease-in-out-quad);
 }
+%slug-transition{
+  @include transition(all 1.5s $ease-in-out-quad);
+}
 
 // Positioning
 %vertically-center-children{

@@ -96,7 +96,7 @@
   display: inline-block;
 }
 .owl-page{
-  @include size(12);
+  @include size(12px);
   display: inline-block;
   margin: 5px;
   border-radius: 50%;

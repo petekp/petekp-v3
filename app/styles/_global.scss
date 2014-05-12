@@ -26,6 +26,12 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+.check-if-mobile{
+  @include media(max-width $bp-med, 1) {
+    display: none;
+  }
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -51,7 +57,7 @@ a:hover{
 
 .is-sticky{
   .project-nav{
-    @include box-shadow(0px 1px 0px rgba(0,0,0,0.18));
+    box-shadow: 0px 1px 0px rgba(0,0,0,0.18);
   }
 
 }
@@ -117,7 +123,7 @@ a:hover{
   background: #fff;
   padding: 50px 0 0 0;
 
-  @include media(max-width 768px, 1) {
+  @include media(max-width $bp-med, 1) {
     padding: 50px 0 0 0;
 
   }
@@ -164,7 +170,7 @@ section header{
       border-bottom: 1px solid darken($themeColorPrimary, 30%);
     }
   }
-  @include media(max-width 768px, 1) {
+  @include media(max-width $bp-med, 1) {
       font-size: 1.1em;
       padding: 1.2em 0;
 

@@ -22,8 +22,16 @@
     //     getWidthFrom: '.sticky'
     // });
 
-    // Trendy Header Parallax (but it looks so cool.)
-    $.stellar();
+    // Trendy Parallax Header (disable if mobile)
+    (function parallaxHeader() {
+        var screenWidth = $(window).width();
+        if (screenWidth >= 800) {
+            $.stellar();
+        } else {
+            return false;
+        }
+        $('.loading-spinner').removeAttr('style');
+    })();
 
     // Better touch responsiveness
     document.addEventListener('touchstart touchend', function() {}, true);
@@ -34,9 +42,11 @@
         var header = $('.page-header');
 
         if (windowH > 700) {
-            header.css(
+            header.removeClass('short').css(
                 'height', $(window).height() * 0.6
             );
+        } else {
+            header.addClass('short');
         }
     })();
 

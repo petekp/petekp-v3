@@ -13,14 +13,13 @@
 	@extend %sans-serif;
 	@include span-columns(4);
 	@include omega(3n);
-	@include transition(all .13s $ease-in-out-quad);
 	@include user-select(none);
+	display: inline-block;
 	position: relative;
 	height: 13em;
-	color: #fff;
-	text-align: center;
-	display: inline-block;
 	float: none;
+	text-align: center;
+	color: #fff;
 	overflow: hidden;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
@@ -39,6 +38,10 @@
 	}
 
 	&:hover{
+		.project-item__cover{
+			@include transform(scale(1.1));
+			opacity: .5;
+		}
 		.project-item__title{
 			@include transform(translate(0, -1rem));
 
@@ -61,64 +64,35 @@
 	a, a:hover{
 		color: #fff;
 	}
-	&.peakfoods{
-		background-color: $peakfoods;
 
-		.project-item__cover{
-			background-image: url(/images/project_photos/peakfoods-thumb.jpg);
-		}
+	// List containing project title with color variable (defined in _variables.scss)
+	$projectsList:
+	  bpn $bpn,
+	  streetsync $streetsync,
+	  aristonjacks $aristonjacks,
+	  peakfoods $peakfoods,
+	  stats $stats,
+	  forge $forge,
+	  vuact $vuact;
+
+	@each $project in $projectsList {
+		$title: nth($project, 1);
+		$color: nth($project, 2);
+
+	  &.#{$title}{
+	  	background-color: $color;
+
+	    .project-item__cover{
+	    	background-image: url(/images/project_photos/#{$title}-thumb.jpg);
+	    }
+	  }
 	}
-	&.bpn{
-		background-color: $bpn;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/bpn-thumb.png);
-		}
-	}
-	&.aristonjacks{
-		background-color: $aristonjacks;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/aristonjacks-thumb.jpg);
-		}
-	}
-	&.forge{
-		background-color: $forge;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/forge-thumb2.jpg);
-		}
-	}
-	&.streetsync{
-		background-color: $streetsync;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/streetsync-thumb.png);
-		}
-	}
-	&.stats{
-		background-color: $stats;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/stats-thumb.jpg);
-		}
-	}
-	&.vuact{
-		background-color: $vuact;
-
-		.project-item__cover{
-			background-image: url(/images/project_photos/vuact-thumb.jpg);
-		}
-	}
-
 }
 
 /*********************  Cover & Title */
 
-.project-item__cover, .project-item__title{
-	@include transition(all .13s $ease-in-out-quad);
-}
 .project-item__cover{
+	@extend %slower-transition;
 	position: absolute;
 	top: 0;
 	left: 0;
