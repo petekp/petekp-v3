@@ -30,8 +30,9 @@
         } else {
             return false;
         }
-        $('.loading-spinner').removeAttr('style');
     })();
+
+    $('.loading-spinner').removeAttr('style');
 
     // Better touch responsiveness
     document.addEventListener('touchstart touchend', function() {}, true);
@@ -45,8 +46,6 @@
             header.removeClass('short').css(
                 'height', $(window).height() * 0.6
             );
-        } else {
-            header.addClass('short');
         }
     })();
 

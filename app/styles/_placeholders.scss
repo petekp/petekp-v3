@@ -1,6 +1,6 @@
 // Animation
 %quick-transition{
-  @include transition(all .13s $ease-in-out-quad);
+  @include transition(all .12s $ease-in-out-quad);
 }
 %midspeed-transition{
   @include transition(all .25s ease);

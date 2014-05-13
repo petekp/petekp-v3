@@ -15,7 +15,6 @@
   a:hover{
     color: darken(#c3f777, 10%);
   }
-
   &.short{
     .page-header__content{
       .me{
@@ -26,8 +25,8 @@
 }
 .page-header__bg{
   @include position(absolute, 0px 0px -20px 0px);
-  @include transition(opacity 1.5s $ease-in-out-quad);
   @include transform(translate3d(0,0,0));
+  @include transition(opacity 1.5s $ease-in-out-quad);
   background-image: url(/images/layout/bg-page-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -57,23 +56,23 @@
   .me{
     @extend %slower-transition;
     @include size(130px);
+    @include transition-delay(.2s);
     display: inline-block;
     border-radius: 4px;
     border: 1px solid #c3f777;
-    @include transition-delay(.2s);
   }
   .name{
-    font-size: 3.2em;
-    margin: .3em 0 .1em;
     @extend %slower-transition;
     @include transition-delay(.3s);
+    font-size: 3.2em;
+    margin: .3em 0 .1em;
   }
   .occupation{
+    @extend %slower-transition;
+    @include transition-delay(.4s);
     font-size: 1.6em;
     font-style: italic;
     font-weight: 100;
-    @extend %slower-transition;
-    @include transition-delay(.4s);
   }
   .links{
     @extend %slower-transition;
@@ -95,9 +94,11 @@
       padding: 0 .6em;
     }
   }
-  @include media(min-width $bp-small max-width $bp-small-3, 1) {
+
+  // Responsive styles
+  @include media(max-width $bp-small-3, 1) {
       .name{
-        font-size: 2.8em;
+        font-size: 2.4em;
       }
       .occupation{
         font-size: 1.3em;

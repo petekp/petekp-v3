@@ -11,6 +11,7 @@
 .project-item{
 	@extend %vertically-center-children;
 	@extend %sans-serif;
+	@extend %midspeed-transition;
 	@include span-columns(4);
 	@include omega(3n);
 	@include user-select(none);
@@ -39,7 +40,7 @@
 
 	&:hover{
 		.project-item__cover{
-			@include transform(scale(1.1));
+			@include transform(scale(1.04));
 			opacity: .5;
 		}
 		.project-item__title{
@@ -54,7 +55,7 @@
 		@include transform(scale(.96));
 
 		.project-item__cover{
-			@include transform(scale(1.04));
+			@include transform(scale(1.08));
 			opacity: .5;
 		}
 		.project-item__title{
@@ -93,7 +94,7 @@
 /*********************  Cover & Title */
 
 .project-item__cover{
-	@extend %slower-transition;
+	@extend %midspeed-transition;
 	position: absolute;
 	top: 0;
 	left: 0;
