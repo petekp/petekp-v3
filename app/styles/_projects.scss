@@ -2,129 +2,129 @@
 --------------------------------------------------------------------------------------------*/
 
 .project-list{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	@include outer-container;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  @include outer-container;
 }
 .project-item{
-	@extend %vertically-center-children;
-	@extend %sans-serif;
-	@extend %midspeed-transition;
-	@include span-columns(4);
-	@include omega(3n);
-	@include user-select(none);
-	display: inline-block;
-	position: relative;
-	height: 13em;
-	float: none;
-	text-align: center;
-	color: #fff;
-	overflow: hidden;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+  @extend %vertically-center-children;
+  @extend %sans-serif;
+  @extend %midspeed-transition;
+  @include span-columns(4);
+  @include omega(3n);
+  @include user-select(none);
+  display: inline-block;
+  position: relative;
+  height: 13em;
+  float: none;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
-	@include media(max-width 480px, 1) {
-		@include span-columns(1);
-		height: 8em !important;
-		margin: 0 0 1px 0;
+  @include media(max-width 480px, 1) {
+    @include span-columns(1);
+    height: 8em !important;
+    margin: 0 0 1px 0;
 
-		.project-item__title{
-			font-size: 1.6em !important;
-		}
-	}
+    .project-item__title{
+      font-size: 1.6em !important;
+    }
+  }
 
-	&.hidden{
-		-webkit-transform: translate3d(0, 0, 0);
-	}
+  &.hidden{
+    -webkit-transform: translate3d(0, 0, 0);
+  }
 
-	&:hover{
-		.project-item__cover{
-			@include transform(scale(1.04));
-			opacity: .5;
-		}
-		.project-item__title{
-			@include transform(translate(0, -1rem));
+  &:hover{
+    .project-item__cover{
+      @include transform(scale(1.04));
+      opacity: .5;
+    }
+    .project-item__title{
+      @include transform(translate(0, -1rem));
 
-			&:after{
-				opacity: .7;
-			}
-		}
-	}
-	&:active{
-		@include transform(scale(.96));
+      &:after{
+        opacity: .7;
+      }
+    }
+  }
+  &:active{
+    @include transform(scale(.96));
 
-		.project-item__cover{
-			@include transform(scale(1.08));
-			opacity: .5;
-		}
-		.project-item__title{
-			@include transform(translate(0, -1rem));
-		}
-	}
-	a, a:hover{
-		color: #fff;
-	}
+    .project-item__cover{
+      @include transform(scale(1.08));
+      opacity: .5;
+    }
+    .project-item__title{
+      @include transform(translate(0, -1rem));
+    }
+  }
+  a, a:hover{
+    color: #fff;
+  }
 
-	// List containing project title with color variable (defined in _variables.scss)
-	$projectsList:
-	  bpn $bpn,
-	  streetsync $streetsync,
-	  aristonjacks $aristonjacks,
-	  peakfoods $peakfoods,
-	  stats $stats,
-	  forge $forge,
-	  vuact $vuact;
+  // List containing project title with color variable (defined in _variables.scss)
+  $projectsList:
+  bpn $bpn,
+  streetsync $streetsync,
+  aristonjacks $aristonjacks,
+  peakfoods $peakfoods,
+  stats $stats,
+  forge $forge,
+  vuact $vuact;
 
-	@each $project in $projectsList {
-		$title: nth($project, 1);
-		$color: nth($project, 2);
+  @each $project in $projectsList {
+    $title: nth($project, 1);
+    $color: nth($project, 2);
 
-	  &.#{$title}{
-	  	background-color: $color;
+    &.#{$title}{
+      background-color: $color;
 
-	    .project-item__cover{
-	    	background-image: url(/images/project_photos/#{$title}-thumb.jpg);
-	    }
-	  }
-	}
+      .project-item__cover{
+        background-image: url(/images/project_photos/#{$title}-thumb.jpg);
+      }
+    }
+  }
 }
 
 
 /*********************  Cover & Title */
 
 .project-item__cover{
-	@extend %midspeed-transition;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	opacity: .2;
-	background-position: 0;
-	background-size: cover;
-	z-index: 1;
+  @extend %midspeed-transition;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .2;
+  background-position: 0;
+  background-size: cover;
+  z-index: 1;
 }
 .project-item__title{
-	@extend %midspeed-transition;
-	position: relative;
-	font-size: 1.8rem;
-	font-weight: 200;
-	display: inline-block;
-	vertical-align: middle;
-	margin-bottom: -1rem;
-	z-index: 2;
-	cursor: pointer;
+  @extend %midspeed-transition;
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 200;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: -1rem;
+  z-index: 2;
+  cursor: pointer;
 
-	&:after{
-		@extend %midspeed-transition;
-		content: 'view details →';
-		display: block;
-		font-size: 1.1rem;
-		font-style: italic;
-		font-family: 'Palatino', 'Palatino Linotype', sans-serif;
-		opacity: 0;
-	}
+  &:after{
+    @extend %midspeed-transition;
+    content: 'view details →';
+    display: block;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-family: 'Palatino', 'Palatino Linotype', sans-serif;
+    opacity: 0;
+  }
 }
 
 
@@ -133,127 +133,127 @@
 --------------------------------------------------------------------------------------------*/
 
 .project-nav{
-	@extend %vertically-center-children;
-	@extend %midspeed-transition;
-	position: relative;
-	text-align: center;
-	font-size: 1em;
-	z-index: 999;
-	background: rgba(255,255,255,0.96);
-	top: -25px;
+  @extend %vertically-center-children;
+  @extend %midspeed-transition;
+  position: relative;
+  text-align: center;
+  font-size: 1em;
+  z-index: 999;
+  background: rgba(255,255,255,0.96);
+  top: -25px;
 
-	&.bottom{
-		margin: 0 auto 50px;
-	}
-	a{
-		@extend %quick-transition;
-		position: relative;
-		display: inline-block;
-		vertical-align: middle;
-		padding: 1.3em 0;
-		font-weight: 600;
+  &.bottom{
+    margin: 0 auto 50px;
+  }
+  a{
+    @extend %quick-transition;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 1.3em 0;
+    font-weight: 600;
 
-		span{
-			color: #aaa;
-		}
-	}
-	.prev, .next{
-		position: absolute;
-	}
-	.prev{
-		left: 2%;
-		text-align: left;
-	}
-	.root{
-		text-align: center;
-		padding: 1em;
-		font-size: 1.2em;
-	}
-	.next{
-		right: 2%;
-		text-align: right;
-	}
+    span{
+      color: #aaa;
+    }
+  }
+  .prev, .next{
+    position: absolute;
+  }
+  .prev{
+    left: 2%;
+    text-align: left;
+  }
+  .root{
+    text-align: center;
+    padding: 1em;
+    font-size: 1.2em;
+  }
+  .next{
+    right: 2%;
+    text-align: right;
+  }
 }
 
 
 /*********************  Project Title */
 
 .project-title{
-	float: left;
-	display: block;
-	width: 100%;
-	text-align: center;
-	margin-bottom: 25px;
-	line-height: 1;
+  float: left;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  line-height: 1;
 
-	h1{
-		@extend %sans-serif;
-		text-transform: none;
-		font-size: 2.3em;
-		margin: 0 0 14px;
-		letter-spacing: -1px;
-		font-weight: 700;
-	}
-	h2{
-		font-size: 1.2em;
-		font-weight: 200;
-		color: #888;
-		margin: 8px 0;
-		text-transform: none;
+  h1{
+    @extend %sans-serif;
+    text-transform: none;
+    font-size: 2.3em;
+    margin: 0 0 14px;
+    letter-spacing: -1px;
+    font-weight: 700;
+  }
+  h2{
+    font-size: 1.2em;
+    font-weight: 200;
+    color: #888;
+    margin: 8px 0;
+    text-transform: none;
 
-	}
+  }
 }
 
 
 /*********************  Photo Slider */
 
 .carousel{
-	width: 500px;
-	height: 800px;
+  width: 500px;
+  height: 800px;
 }
 
 
 /*********************  Project Details */
 
 .project-details{
-	@include outer-container;
-	@include clearfix;
-	margin: 20px auto 30px;
-	position: relative;
-	text-align: center;
+  @include outer-container;
+  @include clearfix;
+  margin: 20px auto 30px;
+  position: relative;
+  text-align: center;
 
-	@include media(max-width 480px, 1) {
-		.background, .contributions{
-			@include span-columns(12);
-			@include shift(0);
-		}
-	}
-	h3{
-		@extend %sans-serif;
-		font-size: 1.4em;
-		font-weight: 700;
-		text-align: center;
-	}
-	.background, .contributions{
-		@include span-columns(8);
-		@include shift(2);
-		text-align: left;
-		font-size: 1.2em;
-		line-height: 1.5;
-	}
-	.background{
-		padding-bottom: 50px;
-		margin-bottom: 50px;
-		border-bottom: 2px solid #eee;
-	}
-	.contributions{
-		line-height: 2;
+  @include media(max-width 480px, 1) {
+    .background, .contributions{
+      @include span-columns(12);
+      @include shift(0);
+    }
+  }
+  h3{
+    @extend %sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+  }
+  .background, .contributions{
+    @include span-columns(8);
+    @include shift(2);
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+  .background{
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 2px solid #eee;
+  }
+  .contributions{
+    line-height: 2;
 
-		ul{
-			float: left;
-			margin: 0;
-			list-style-type: square ;
-		}
-	}
+    ul{
+      float: left;
+      margin: 0;
+      list-style-type: square ;
+    }
+  }
 
 }
