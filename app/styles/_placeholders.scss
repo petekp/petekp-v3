@@ -1,4 +1,7 @@
 // Animation
+%quickest-transition{
+  @include transition(all .12s $ease-in-out-quad);
+}
 %quick-transition{
   @include transition(all .12s $ease-in-out-quad);
 }

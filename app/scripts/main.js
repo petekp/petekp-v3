@@ -66,7 +66,11 @@
             slideSpeed: 750,
             navigation: true,
             singleItem: true,
-            pagination: true
+            pagination: true,
+            lazyLoad: true,
+            lazyFollow: true,
+            lazyEffect: "fade",
+            transitionStyle: "fade"
         });
 
         $('.item').click(function() {
