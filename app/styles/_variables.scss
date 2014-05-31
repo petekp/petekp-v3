@@ -1,32 +1,31 @@
 /* Bourbon Overrides *********/
-$column: golden-ratio(1em, 3) !default; // Column width
-$gutter: golden-ratio(.1em, 1) !default; // Gutter between each two columns
-$grid-columns: 12 !default; // Total number of columns in the grid
-$max-width: em(1088) !default; // Max-width of the outer container
-$border-box-sizing: true !default; // Makes all elements have a border-box layout
-$default-feature: min-width; // Default @media feature for the breakpoint() mixin
-$default-layout-direction: LTR !default;
+$column                   : golden-ratio(1em, 3) !default; // Column width
+$gutter                   : golden-ratio(.1em, 1) !default; // Gutter between each two columns
+$grid-columns             : 12 !default; // Total number of columns in the grid
+$max-width                : em(1088) !default; // Max-width of the outer container
+$border-box-sizing        : true !default; // Makes all elements have a border-box layout
+$default-feature          : min-width; // Default @media feature for the breakpoint() mixin
+$default-layout-direction : LTR !default;
 
 /* Global Theme Colors *********/
-$themeColorPrimary: #ABD267;
-$themeColorSecondary: #091038;
+$themeColorPrimary : #E1B658;
 
 /* Project Colors *********/
-$bpn: #337988;
-$streetsync: #947633;
-$aristonjacks: #4B7A33;
-$peakfoods: #4A220C;
-$stats: #555;
-$forge: #90260A;
-$vuact: #433775;
+$bpn          : #337988;
+$streetsync   : #947633;
+$aristonjacks : #4B7A33;
+$peakfoods    : #4A220C;
+$stats        : #555;
+$forge        : #90260A;
+$vuact        : #433775;
 
 /* Breakpoints (courtesy of Brad Frost - http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/) */
-$bp-small : 24em; // 384px
+$bp-small   : 24em; // 384px
 $bp-small-2 : 29.75em; // 476px
 $bp-small-3 : 39.8em; // 636px
-$bp-med : 46.8em; // 748px
-$bp-med-2 : 48em; // 768px
-$bp-large : 50em; // 800px
+$bp-med     : 46.8em; // 748px
+$bp-med-2   : 48em; // 768px
+$bp-large   : 50em; // 800px
 $bp-large-2 : 54.5em; // 872px
-$bp-xl : 60em; // 960px
-$bp-xl-2 : 67em; // 1072px
+$bp-xl      : 60em; // 960px
+$bp-xl-2    : 67em; // 1072px
