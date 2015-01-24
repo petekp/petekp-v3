@@ -8,7 +8,7 @@ $default-feature          : min-width; // Default @media feature for the breakpo
 $default-layout-direction : LTR !default;
 
 /* Global Theme Colors *********/
-$themeColorPrimary : #E1B658;
+$themeColorPrimary : #32AF9F;
 
 /* Project Colors *********/
 $bpn          : #337988;
@@ -17,7 +17,8 @@ $aristonjacks : #4B7A33;
 $peakfoods    : #4A220C;
 $stats        : #555;
 $forge        : #90260A;
-$vuact        : #433775;
+$vuact        : HSLA(245, 36%, 49%, 1);
+$techshed     : HSLA(16, 76%, 69%, 1);
 
 /* Breakpoints (courtesy of Brad Frost - http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/) */
 $bp-small   : 24em; // 384px

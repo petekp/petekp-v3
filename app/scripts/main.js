@@ -1,3 +1,5 @@
+/* jshint camelcase: false */
+/* exported PeteKPV4 */
 'use strict';
 
 (function() {
@@ -6,8 +8,8 @@
     // Decided to disable to improve page-scrolling performance.
     // $(window).scroll(function() {
     //     var scrollVar = $(window).scrollTop(),
-    //         pageHeaderContent = $('.page-header__content'),
-    //         pageHeaderBg = $('.page-header__bg');
+    //         pageHeaderContent = $('.page-header-content'),
+    //         pageHeaderBg = $('.page-header-bg');
     //     pageHeaderContent.css({
     //         'opacity': (250 - scrollVar) / 100
     //     });
@@ -38,16 +40,16 @@
     document.addEventListener('touchstart touchend', function() {}, true);
 
     // Set header height to 60% of window height
-    (function bigOlHeader() {
-        var windowH = $(window).height();
-        var header = $('.page-header');
+    // (function bigOlHeader() {
+    //     var windowH = $(window).height();
+    //     var header = $('.page-header');
 
-        if (windowH > 700) {
-            header.removeClass('short').css(
-                'height', $(window).height() * 0.6
-            );
-        }
-    })();
+    //     if (windowH > 700) {
+    //         header.removeClass('short').css(
+    //             'height', $(window).height() * 0.6
+    //         );
+    //     }
+    // })();
 
     // Delayed reveal of header content
     (function revealHeader() {
@@ -69,8 +71,8 @@
             pagination: true,
             lazyLoad: true,
             lazyFollow: true,
-            lazyEffect: "fade",
-            transitionStyle: "fade"
+            lazyEffect: 'fade',
+            transitionStyle: 'fade'
         });
 
         $('.item').click(function() {
@@ -80,7 +82,7 @@
 
     // Project Viewing Component
     var projectWindow = $('.project-window');
-    projectWindow.css('min-height', '800px');
+    // projectWindow.css('min-height', '800px');
 
     projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();

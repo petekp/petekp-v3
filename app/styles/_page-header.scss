@@ -1,115 +1,30 @@
 .page-header{
-  @extend %vertically-center-children;
-  position: relative;
-  height: 25em;
-  width: 100%;
-  margin-bottom: 0;
-  background-color: darken($themeColorPrimary, 45%);
-  z-index: 0;
-
-  a{
-    color: $themeColorPrimary;
-    text-decoration: none;
-    font-size: 1.1em;
-  }
-  a:hover{
-    color: darken($themeColorPrimary, 10%);
-  }
-  &.short{
-    .page-header__content{
-      .me{
-        @include size(100px);
-      }
-    }
-  }
-}
-.page-header__bg{
-  @include position(absolute, 0px 0px -20px 0px);
-  @include transform(translate3d(0,0,0));
-  @include transition(opacity 1.5s $ease-in-out-quad);
-  background-image: url(/images/layout/bg-page-header.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: scroll;
-  z-index: 1;
-  opacity: 1;
-}
-.page-header__content{
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
   text-align: center;
-  color: #fff;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.1);
-  cursor: default;
-  z-index: 2;
+  margin: 1rem 0 0rem;
 
-  &.hidden{
-    .me, .name, .occupation, .links{
-      opacity: 0;
-    }
-    .me{
-    }
-  }
-  div{
-    display: block;
-  }
-  .me{
-    @include transition(opacity .5s $ease-in-out-quad);
-    @include size(130px);
-    @include transition-delay(.2s);
-    display: inline-block;
-    border-radius: 4px;
-    border: 1px solid $themeColorPrimary;
-  }
-  .name{
-    @extend %slower-transition;
-    @include transition-delay(.3s);
-    font-size: 3.2em;
-    margin: .3em 0 .1em;
-  }
-  .occupation{
-    @extend %slower-transition;
-    @include transition-delay(.4s);
-    font-size: 1.6em;
-    font-style: italic;
-    font-weight: 100;
-  }
-  .links{
-    @extend %slower-transition;
-    @include transition-delay(.5s);
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 
-    &:before{
-      content: "––––––––";
-      color: $themeColorPrimary;
-      opacity: .5;
-      display: block;
-      margin: .5em 0 .8em;
-    }
+  h1{
+    @include span-columns(12);
+    color: #444;
+    font-size: 3.6rem;
 
-    li{
-      display: inline-block;
-      padding: 0 .6em;
+    line-height: 1;
+
+    span{
+      opacity: 0.5;
     }
   }
+  h4{
+    @include span-columns(12);
+  }
+}
 
-  // Responsive styles
-  @include media(max-width $bp-small-3, 1) {
-      .name{
-        font-size: 2.4em;
-      }
-      .occupation{
-        font-size: 1.3em;
+.me{
+  @include span-columns(12);
+  margin: 0 0 1rem 0;
 
-        span{
-          display: none;
-        }
-      }
-      .links{
-        font-size: 1.1em;
-      }
+  img{
+    @include size(9rem);
+    border-radius: 0.45rem;
   }
 }

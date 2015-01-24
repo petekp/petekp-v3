@@ -17,8 +17,8 @@
   @include user-select(none);
   display: inline-block;
   position: relative;
-  height: 13em;
-  margin-bottom: -1px;
+  height: 15.5em;
+
   float: none;
   text-align: center;
   color: #fff;
@@ -42,14 +42,13 @@
   &:hover{
     .project-item__cover{
       @include transform(scale(1.04));
-      opacity: .5;
+      opacity: 0.9;
     }
     .project-item__title{
-      @include transform(translate(0, -1rem));
+      @include transform(scale(.96));
+      opacity: 0;
 
-      &:after{
-        opacity: .7;
-      }
+
     }
   }
   &:active{
@@ -86,6 +85,8 @@
 
       .project-item__cover{
         background-image: url(/images/project_photos/#{$title}-thumb.jpg);
+        background-position: center center;
+        background-size: 100%;
       }
     }
   }
@@ -123,7 +124,6 @@
     display: block;
     font-size: 1.1rem;
     font-style: italic;
-    font-family: 'Palatino', 'Palatino Linotype', sans-serif;
     opacity: 0;
   }
 }
