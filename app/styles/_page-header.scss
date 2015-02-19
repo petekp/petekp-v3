@@ -2,13 +2,12 @@
   text-align: center;
   margin: 1rem 0 0rem;
 
-
   h1{
     @include span-columns(12);
-    color: #444;
+    margin: 1rem 0 1rem 0;
     font-size: 3.6rem;
-
     line-height: 1;
+    color: #444;
 
     span{
       opacity: 0.5;
@@ -16,15 +15,31 @@
   }
   h4{
     @include span-columns(12);
+    margin-top: -7rem;
   }
 }
 
 .me{
-  @include span-columns(12);
-  margin: 0 0 1rem 0;
 
   img{
     @include size(9rem);
     border-radius: 0.45rem;
+  }
+}
+
+.thumbprint{
+  display: inline-block;
+  right: 0;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  border-radius: 0.45rem;
+  overflow: hidden;
+  -webkit-animation: rgbFadeBgColor 20s linear 0s infinite normal;
+
+  img{
+    float:left;
+    height: 10rem;
+    max-width: 100%;
+    opacity: 1;
   }
 }

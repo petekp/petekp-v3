@@ -48,7 +48,7 @@ h4{
   font-size: 4em;
   display: block;
   position: relative;
-  -webkit-animation: rgbFade 3s linear 0s infinite normal;
+  -webkit-animation: rgbFadeColor 3s linear 0s infinite normal;
   opacity: 0.2;
 }
 
@@ -62,7 +62,7 @@ h4{
   margin-bottom: 5rem;
 }
 
-@include keyframes(rgbFade) {
+@include keyframes(rgbFadeColor) {
   0% {
     color: red;
   }
@@ -74,5 +74,20 @@ h4{
   }
   100%{
     color: red;
+  }
+}
+
+@include keyframes(rgbFadeBgColor) {
+  0% {
+    background-color: red;
+  }
+  33% {
+    background-color: green;
+  }
+  66%{
+    background-color: aqua;
+  }
+  100%{
+    background-color: red;
   }
 }

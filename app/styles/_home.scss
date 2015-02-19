@@ -1,3 +1,9 @@
+.when{
+  @extend %monospace;
+  text-transform: lowercase;
+  font-weight: 400;
+}
+
 .currently, .previously{
   display: block;
   padding: 8rem 0 11rem;
@@ -18,7 +24,6 @@
     }
   }
 }
-
 .previously{
   margin: -3rem 0 0 0;
   padding: 15rem 0;
@@ -40,15 +45,14 @@
   }
 }
 
-
-
 .techshed{
   background: $techshed;
-  color: red;
+  @include linear-gradient(#FB6200, #FFA731);
+  background: url('/images/layout/techshed-bg-grad.jpg') repeat-x top center fixed;
 
   a{
     color: #fff;
-    border-bottom: 0.3rem solid rgba(255,255,255,0.6);
+    border-bottom: 0.3rem solid rgba(255,255,255,0.4);
   }
   p, h1, h2, h4{
     color: #fff;
@@ -63,6 +67,7 @@
   }
 }
 
+
 .home-depot-link{
   position: relative;
   padding-left: 3.8rem;
@@ -72,11 +77,11 @@
 .home-depot-link:before{
   @include size(3rem);
   content: '';
-  background: url("/images/layout/homedepot-logo.png");
-  background-size: cover;
-  position: absolute;
   display: inline-block;
+  position: absolute;
   left: 0;
   top: -0.1rem;
   border: 0.1rem solid white;
+  background: url("/images/layout/homedepot-logo.png");
+  background-size: cover;
 }

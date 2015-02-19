@@ -7,14 +7,13 @@
     background: opacify($themeColorPrimary, .2); /* Firefox */
     color: #fff;
   }
-  @include backface-visibility(hidden);
 }
 html{
   // @extend %debug-layout;
   @include respond-to(handhelds) { font-size: 62.5%; }
   @include respond-to(md-screen) { font-size: 72%; }
   @include respond-to(lg-screen) { font-size: 80%; }
-  @include respond-to(x-lg-screen) { font-size: 80%; }
+  @include respond-to(x-lg-screen) { font-size: 90%; }
   @include respond-to(xx-lg-screen) { font-size: 100%; }
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
@@ -29,7 +28,6 @@ body{
   color: #333;
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
   text-rendering: optimizeLegibility !important;
-  background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -56,12 +54,11 @@ body{
 }
 
 a{
-  color: darken($themeColorPrimary, 20%);
   text-decoration: none;
   letter-spacing: -0.08rem;
 }
 a:hover{
-  color: darken($themeColorPrimary, 30%);
+
 }
 
 .hidden{
