@@ -2,14 +2,18 @@
   @extend %monospace;
   text-transform: lowercase;
   font-weight: 400;
+  opacity: 0.8;
 }
 
 .currently, .previously{
   display: block;
-  padding: 8rem 0 11rem;
+  margin: 0 0 0 0;
+  padding: 10rem 0;
+  background-attachment: fixed;
+  background-size: 50% 27%;
 
   h1{
-    margin: 0 0 3rem 0;
+    margin: 2rem 0 4rem 0;
     @include span-columns(12);
   }
   p{
@@ -25,8 +29,6 @@
   }
 }
 .previously{
-  margin: -3rem 0 0 0;
-  padding: 15rem 0;
 
   h1{
     font-size: 3.4rem;
@@ -34,21 +36,26 @@
 }
 
 .vuact{
-  background: HSLA(246, 67%, 79%, 0.2);
+  background: #fff;
+  background: HSLA(242, 33%, 57%, 0.1);
+  background-attachment: fixed;
 
   a{
     color: $vuact;
-    border-bottom: 0.4rem solid HSLA(245, 36%, 37%, 0.7);
+    border-bottom: 0.4rem solid HSLA(245, 36%, 37%, 0.2);
   }
   p, h1, h2, h4 {
-    color: HSLA(245, 36%, 32%, 0.7);
+    color: HSLA(242, 39%, 40%, 1);
+  }
+  .when{
+    color: HSLA(242, 39%, 40%, 0.6);
   }
 }
 
 .techshed{
   background: $techshed;
   @include linear-gradient(#FB6200, #FFA731);
-  background: url('/images/layout/techshed-bg-grad.jpg') repeat-x top center fixed;
+  background-attachment: fixed;
 
   a{
     color: #fff;
@@ -58,12 +65,22 @@
     color: #fff;
   }
   h2{
-    color: hsla(20, 67%, 30%, 1);
-    font-size: 2.5rem;
+    color: hsla(20, 67%, 27%, 1);
+    font-size: 2.3rem;
   }
 
   .when{
     color: rgba(255,255,255,1);
+  }
+}
+
+.causelabs{
+  background: #EF4036;
+  color: #fff;
+
+  a{
+    color: #fff;
+    border-bottom: 0.3rem solid rgba(255,255,255,0.4);
   }
 }
 
@@ -74,6 +91,7 @@
   font-weight: 500;
   margin-left: 0.6rem;
 }
+
 .home-depot-link:before{
   @include size(3rem);
   content: '';
@@ -81,7 +99,7 @@
   position: absolute;
   left: 0;
   top: -0.1rem;
-  border: 0.1rem solid white;
+
   background: url("/images/layout/homedepot-logo.png");
   background-size: cover;
 }

@@ -1,6 +1,5 @@
 .page-header{
   text-align: center;
-  margin: 1rem 0 0rem;
 
   h1{
     @include span-columns(12);
@@ -8,6 +7,7 @@
     font-size: 3.6rem;
     line-height: 1;
     color: #444;
+    font-weight: 800;
 
     span{
       opacity: 0.5;
@@ -15,7 +15,7 @@
   }
   h4{
     @include span-columns(12);
-    margin-top: -7rem;
+    margin-top: 1rem;
   }
 }
 

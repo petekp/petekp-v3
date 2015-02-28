@@ -24,6 +24,10 @@
     //     getWidthFrom: '.sticky'
     // });
 
+    $(document).scroll(function() {
+        $('.techshed').css('background-position', '0px ' + $(document).scrollTop() + 'px');
+    });
+
     // Trendy Parallax Header (disable if mobile)
     (function parallaxHeader() {
         var screenWidth = $(window).width();

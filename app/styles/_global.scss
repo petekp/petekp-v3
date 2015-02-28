@@ -11,14 +11,14 @@
 html{
   // @extend %debug-layout;
   @include respond-to(handhelds) { font-size: 62.5%; }
-  @include respond-to(md-screen) { font-size: 72%; }
-  @include respond-to(lg-screen) { font-size: 80%; }
-  @include respond-to(x-lg-screen) { font-size: 90%; }
-  @include respond-to(xx-lg-screen) { font-size: 100%; }
+  @include respond-to(md-screen) { font-size: 70%; }
+  // @include respond-to(lg-screen) { font-size: 80%; }
+  // @include respond-to(x-lg-screen) { font-size: 80%; }
+  // @include respond-to(xx-lg-screen) { font-size: 80%; }
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
   text-rendering: optimizeLegibility;
-  background: #fff;
+  background: #f7f7f7;
 }
 body{
   @extend %serif;
@@ -33,7 +33,7 @@ body{
 }
 
 .check-if-mobile{
-  @include media(max-width $bp-med, 1) {
+  @include respond-to(md-screen) {
     display: none;
   }
 }
@@ -49,8 +49,12 @@ body{
   @include outer-container;
   position: relative;
   margin: 0 3rem;
-
   max-width: none !important;
+
+  @include respond-to(md-screen) {
+    max-width: 50rem;
+    margin: auto;
+  }
 }
 
 a{
