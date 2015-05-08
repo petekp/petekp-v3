@@ -49,10 +49,9 @@ body{
   @include outer-container;
   position: relative;
   margin: 0 3rem;
-  max-width: none !important;
 
   @include respond-to(md-screen) {
-    max-width: 50rem;
+    max-width: 60rem;
     margin: auto;
   }
 }
@@ -106,6 +105,10 @@ section{
 }
 .btn-arrow{
 
+}
+
+.half-width{
+  width: 50%;
 }
 
 

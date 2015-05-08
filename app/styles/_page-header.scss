@@ -1,31 +1,27 @@
 .page-header{
-  text-align: center;
 
-  h1{
-    @include span-columns(12);
-    margin: 1rem 0 1rem 0;
-    font-size: 3.6rem;
-    line-height: 1;
-    color: #444;
-    font-weight: 800;
-
-    span{
-      opacity: 0.5;
-    }
-  }
-  h4{
-    @include span-columns(12);
-    margin-top: 1rem;
-  }
 }
-
 .me{
-
-  img{
-    @include size(9rem);
-    border-radius: 0.45rem;
-  }
+  @include size(17rem);
+  border-radius: 0.45rem;
+  position: absolute;
+    left: -20rem;
+    top: 2rem;
 }
+.my-name{
+  @include span-columns(12);
+  margin: 1rem 0 1rem 0;
+  font-size: 3.6rem;
+  line-height: 1;
+  color: #444;
+  font-weight: 800;
+}
+h4{
+  @include span-columns(12);
+  margin-top: 1rem;
+}
+
+
 
 .thumbprint{
   display: inline-block;
