@@ -2,37 +2,8 @@
 
 (function() {
 
-    // Fancy header fading on scroll.
-    // Decided to disable to improve page-scrolling performance.
-    // $(window).scroll(function() {
-    //     var scrollVar = $(window).scrollTop(),
-    //         pageHeaderContent = $('.page-header__content'),
-    //         pageHeaderBg = $('.page-header__bg');
-    //     pageHeaderContent.css({
-    //         'opacity': (250 - scrollVar) / 100
-    //     });
-    //     pageHeaderBg.css({
-    //         'opacity': (300 - scrollVar) / 300
-    //     });
-    // });
-
-    // Sticky Notice Bar
-    // $('.notice').sticky({
-    //     topSpacing: 0,
-    //     getWidthFrom: '.sticky'
-    // });
-
-    // Trendy Parallax Header (disable if mobile)
-    (function parallaxHeader() {
-        var screenWidth = $(window).width();
-        if (screenWidth >= 800) {
-            $.stellar();
-        } else {
-            return false;
-        }
-    })();
-
     $('.loading-spinner').removeAttr('style');
+    var $projectWindow = $('.project-window');
 
     // Better touch responsiveness
     document.addEventListener('touchstart touchend', function() {}, true);
@@ -54,7 +25,7 @@
         var headerChildren = $('.page-header').children();
 
         headerChildren.each(function() {
-            $(this).toggleClass('hidden');
+            $(this).toggleClass('is-hidden');
         });
     })();
 
@@ -69,8 +40,8 @@
             pagination: true,
             lazyLoad: true,
             lazyFollow: true,
-            lazyEffect: "fade",
-            transitionStyle: "fade"
+            lazyEffect: 'fade',
+            transitionStyle: 'fade'
         });
 
         $('.item').click(function() {
@@ -79,10 +50,10 @@
     }
 
     // Project Viewing Component
-    var projectWindow = $('.project-window');
-    projectWindow.css('min-height', '800px');
 
-    projectWindow.on('click', '.project-item-link', function(e) {
+    $projectWindow.css('min-height', '800px');
+
+    $projectWindow.on('click', '.project-item-link', function(e) {
         e.preventDefault();
 
         // Not initial page load, so enable auto-scrolling
@@ -90,7 +61,7 @@
 
         // $('.page-content').css('border-color', $(this).data('color'));
 
-        $('.project-item-link').not($(this)).parent().toggleClass('hidden');
+        $('.project-item-link').not($(this)).parent().toggleClass('is-hidden');
 
         // get project url
         var url = $(this).attr('href');
@@ -112,13 +83,13 @@
 
     // Get project html and display it in .project-window
     function getProject(url) {
-        $('.loading-spinner, .project-window header').toggleClass('hidden');
+        $('.loading-spinner, .project-window header').toggleClass('is-hidden');
 
-        projectWindow
-            .addClass('hidden')
+        $projectWindow
+            .addClass('is-hidden')
             .on('transitionend webkitTransitionEnd', function(e) {
                 e.stopPropagation();
-                projectWindow.off('transitionend webkitTransitionEnd');
+                $projectWindow.off('transitionend webkitTransitionEnd');
 
                 // If not initial page load, scroll to top of newly loaded projects
                 if (initPageLoad !== 1) {
@@ -141,7 +112,7 @@
         setTimeout(function() {
 
             // load the project into project window
-            projectWindow.load(url, function() {
+            $projectWindow.load(url, function() {
 
                 $(this).css('height', 'auto');
 
@@ -151,12 +122,12 @@
                     topSpacing: 0,
                     getWidthFrom: '.wrapper'
                 });
-                $('.loading-spinner').toggleClass('hidden');
-                projectWindow
-                    .removeClass('hidden')
+                $('.loading-spinner').toggleClass('is-hidden');
+                $projectWindow
+                    .removeClass('is-hidden')
                     .on('transitionend webkitTransitionEnd', function(e) {
                         e.stopPropagation();
-                        projectWindow.off('transitionend webkitTransitionEnd');
+                        $projectWindow.off('transitionend webkitTransitionEnd');
                     });
             });
         }, 400);

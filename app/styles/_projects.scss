@@ -17,7 +17,7 @@
   @include user-select(none);
   display: inline-block;
   position: relative;
-  height: 13em;
+  height: 13rem;
   margin-bottom: -1px;
   float: none;
   text-align: center;
@@ -26,7 +26,7 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   @include media(max-width 480px, 1) {
-    @include span-columns(1);
+    @include span-columns(12);
     height: 8em !important;
     margin: 0 0 1px 0;
 
@@ -35,7 +35,7 @@
     }
   }
 
-  &.hidden{
+  &.is-hidden{
     -webkit-transform: translate3d(0, 0, 0);
   }
 
@@ -138,7 +138,7 @@
   @extend %midspeed-transition;
   position: relative;
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   z-index: 999;
   background: rgba(255,255,255,0.96);
   top: -25px;
@@ -167,8 +167,8 @@
   }
   .root{
     text-align: center;
-    padding: 1em;
-    font-size: 1.2em;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
   .next{
     right: 2%;
@@ -190,13 +190,13 @@
   h1{
     @extend %sans-serif;
     text-transform: none;
-    font-size: 2.3em;
+    font-size: 2.3rem;
     margin: 0 0 14px;
     letter-spacing: -1px;
     font-weight: 700;
   }
   h2{
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 200;
     color: #888;
     margin: 8px 0;
@@ -225,13 +225,13 @@
 
   @include media(max-width 480px, 1) {
     .background, .contributions{
-      @include span-columns(12);
+
       @include shift(0);
     }
   }
   h3{
     @extend %sans-serif;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
   }
@@ -239,7 +239,7 @@
     @include span-columns(8);
     @include shift(2);
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     line-height: 1.5;
   }
   .background{

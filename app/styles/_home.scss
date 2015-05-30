@@ -2,7 +2,7 @@
   @include transition(opacity .4s $ease-in-out-quad);
   position: relative;
 
-  &.hidden{
+  &.is-hidden{
     height: 800px;
   }
 }
@@ -12,14 +12,14 @@
   .project-item{
     @include span-columns(6);
     @include omega(2n);
-    height: 18em;
+    height: 18rem;
 
     @include media(min-width 320px max-width 480px, 1) {
-        @include span-columns(1);
+        @include span-columns(12);
     }
   }
   .project-item__title{
-    font-size: 2.1em;
+    font-size: 2.1rem;
   }
 }
 
@@ -40,22 +40,22 @@
   h3{
     @extend %sans-serif;
     margin: 0;
-    font-size: 1.3em;
+    font-size: 1.3rem;
     line-height: 1.7;
   }
   span{
     color: #999;
     font-weight: normal;
-    font-size: 1.1em;
+    font-size: 1.1rem;
   }
   @include media(max-width $bp-small-3, 1) {
       h3{
-        font-size: 1.2em;
+        font-size: 1.2rem;
         line-height: 1.4;
         margin: 0 0 4px;
       }
       span{
-        font-size: 1em;
+        font-size: 1rem;
       }
   }
 }
@@ -77,7 +77,7 @@
   }
   @include media(min-width 320px max-width 480px, 1) {
       a{
-        font-size: 1.2em;
+        font-size: 1.2rem;
         padding: 0 px;
       }
   }

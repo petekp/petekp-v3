@@ -49,7 +49,7 @@ a:hover{
   color: darken($themeColorPrimary, 30%);
 }
 
-.hidden{
+.is-hidden{
   opacity: 0 !important;
 }
 .is-sticky{
@@ -63,7 +63,7 @@ a:hover{
   @include position(absolute, 10px 0 0 50%);
   @include size(5em);
   @include transform(scale(.4));
-  margin: 0 0 0 -2.5em;
+  margin: 0 0 0 -2.5rem;
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
@@ -81,14 +81,14 @@ a:hover{
   content: "";
   border-radius: 50%;
   background: #ffffff;
-  margin: auto auto auto -2em;
+  margin: auto auto auto -2rem;
 }
 .loader {
   @include size(5em);
   @include position(absolute, 0px 0 0px 50%);
   background: #fff;
   border-radius: 50%;
-  margin: auto auto auto -2.5em;
+  margin: auto auto auto -2.5rem;
 }
 .loader:after {
   @include position(absolute, 0px 0 0px 0);
@@ -117,7 +117,7 @@ a:hover{
   // border-top: none;
   // border-bottom: none;
   background: #fff;
-  padding: 50px 0 0 0;
+  padding: 7rem 0 0 0;
 
   @include media(max-width $bp-med, 1) {
     padding: 50px 0 0 0;
@@ -132,7 +132,7 @@ section header{
   @extend %quick-transition;
   @extend %serif;
   @include user-select(none);
-  font-size: 1.3em;
+  font-size: 1.4rem;
   font-style: italic;
   text-align: center;
   color: #777;
@@ -141,7 +141,7 @@ section header{
   &:after{
     content: "––";
     display: block;
-    margin: .2em 0 .5em;
+    margin: .2rem 0 .5rem;
     color: #ddd;
   }
 }
@@ -149,9 +149,9 @@ section header{
   position: relative;
   width: 100%;
   background: $themeColorPrimary;
-  padding: .8em 0;
+  padding: .8rem 0;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.4rem;
   z-index: 999;
   color: darken($themeColorPrimary, 40%);
   cursor: default;
@@ -167,8 +167,8 @@ section header{
     }
   }
   @include media(max-width $bp-med, 1) {
-      font-size: 1.1em;
-      padding: 1.2em 0;
+      font-size: 1.1rem;
+      padding: 1.2rem 0;
 
       span{
         position: relative;

@@ -1,4 +1,6 @@
-// Generated on 2014-03-26 using generator-webapp 0.4.8
+/* jshint ignore:start */
+
+
 'use strict';
 
 // # Globbing
@@ -424,3 +426,5 @@ module.exports = function(grunt) {
 
 
 };
+
+/* jshint ignore:end */
