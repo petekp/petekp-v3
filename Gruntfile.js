@@ -404,6 +404,7 @@ module.exports = function(grunt) {
     'clean:dist',
     'useminPrepare',
     'includes:build',
+    'imagemin',
     'concurrent:dist',
     'concat',
     'cssmin',
