@@ -15,7 +15,7 @@
     height: 18em;
 
     @include media(min-width 320px max-width 480px, 1) {
-        @include span-columns(1);
+        @include span-columns(12);
     }
   }
   .project-item__title{

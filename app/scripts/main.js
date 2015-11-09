@@ -22,16 +22,6 @@
     //     getWidthFrom: '.sticky'
     // });
 
-    // Trendy Parallax Header (disable if mobile)
-    (function parallaxHeader() {
-        var screenWidth = $(window).width();
-        if (screenWidth >= 800) {
-            $.stellar();
-        } else {
-            return false;
-        }
-    })();
-
     $('.loading-spinner').removeAttr('style');
 
     // Better touch responsiveness
@@ -60,21 +50,18 @@
 
     // Init owl carousel
     function initCarousel() {
-        var owl = $('#project-carousel');
+        var owl = $('.owl-carousel');
 
         owl.owlCarousel({
             slideSpeed: 750,
-            navigation: true,
-            singleItem: true,
-            pagination: true,
+            items: 1,
             lazyLoad: true,
-            lazyFollow: true,
-            lazyEffect: "fade",
-            transitionStyle: "fade"
+            dots: true,
+            loop: true,
+            navSpeed: 1750
         });
-
-        $('.item').click(function() {
-            owl.trigger('owl.next');
+        $('.owl-carousel img').click(function() {
+            owl.trigger('next.owl.carousel');
         });
     }
 
