@@ -8,7 +8,6 @@
 }
 
 .recent-work{
-
   .project-item{
     @include span-columns(6);
     @include omega(2n);
@@ -26,14 +25,23 @@
 .older-work{
     text-align: center;
     .project-item{
-        @include span-columns(3);
-        height: 10rem;
+        @include span-columns(4);
+
+        height: 12rem;
         display: inline-block;
         float: none;
+        @include media(max-width 800px, 1) {
+            @include span-columns(6);
+            @include omega(10n);
+            margin: 0 !important;
+        }
+        @include media(max-width 480px, 1) {
+            @include span-columns(12);
+            @include omega(10n);
+        }
+
     }
-    @include media(min-width 320px max-width 480px, 1) {
-        @include span-columns(12);
-    }
+
     .project-item__title{
         font-size: 1.6em;
      }
@@ -41,17 +49,25 @@
 
 .skills{
   line-height: 1.5;
-  text-align: center;
   color: #444;
 
   ul{
+    @include outer-container;
     list-style-type: none;
     margin: 0;
     padding: 0;
     font-weight: 600;
+
   }
   li{
+      @include span-columns(6);
+      margin: 0 15% 0;
+      @include omega(2n);
     margin: 0 0 26px;
+    padding: 0 3% 0;
+    @include media(min-width 320px max-width 480px, 1) {
+        @include span-columns(12);
+    }
   }
   h3{
     @extend %sans-serif;
