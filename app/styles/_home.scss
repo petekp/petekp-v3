@@ -26,7 +26,6 @@
     text-align: center;
     .project-item{
         @include span-columns(4);
-
         height: 12rem;
         display: inline-block;
         float: none;

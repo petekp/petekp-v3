@@ -23,7 +23,7 @@
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   @include media(max-width 480px, 1) {
-    @include span-columns(1);
+    @include span-columns(12);
     height: 8em !important;
     margin: 0 0 1px 0;
 
@@ -183,7 +183,6 @@
   text-align: center;
   margin-bottom: 25px;
 
-
   @include media(max-width 480px, 1) {
       @include span-columns(10);
       @include shift(1);
@@ -222,6 +221,7 @@
 .project-details{
   @include outer-container;
   @include clearfix;
+  float: left;
   margin: 20px auto 30px;
   position: relative;
   text-align: center;
